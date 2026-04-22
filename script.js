@@ -1,32 +1,18 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. CUSTOM CURSOR ANIMATION
+// 1. CUSTOM CURSOR
 const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.cursor-follower');
-
 document.addEventListener('mousemove', (e) => {
-    // Kursor utama (titik putih) mengikuti mouse secara instan
     gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
-    // Follower (lingkaran luar) mengikuti dengan sedikit jeda (lag)
     gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
 });
 
-// Memperbesar lingkaran saat hover pada tautan atau gambar
-const hoverElements = document.querySelectorAll('a, .portfolio-item');
-hoverElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        gsap.to(follower, { width: 80, height: 80, backgroundColor: "rgba(255,255,255,0.1)", duration: 0.3 });
-    });
-    el.addEventListener('mouseleave', () => {
-        gsap.to(follower, { width: 40, height: 40, backgroundColor: "transparent", duration: 0.3 });
-    });
-});
-
-// 2. HERO PARALLAX
+// 2. HERO PARALLAX & GTA DEPTH OF FIELD BLUR
 const layers = document.querySelectorAll(".layer");
 layers.forEach(layer => {
     const speed = layer.getAttribute("data-speed");
-    const yMovement = (1 - speed) * 300; 
+    const yMovement = (1 - speed) * 500; 
 
     gsap.to(layer, {
         y: yMovement,
@@ -40,45 +26,90 @@ layers.forEach(layer => {
     });
 });
 
-// 3. PHILOSOPHY TEXT REVEAL
-// Memecah paragraf menjadi beberapa baris secara kasar untuk animasi
-gsap.from(".reveal-text", {
+// Efek DoF: Layer paling depan nge-blur saat di-scroll (Menciptakan ilusi 3D kamera)
+gsap.to(".layer-fg img", {
+    filter: "blur(15px)",
+    scale: 1.2,
     scrollTrigger: {
-        trigger: ".philosophy-section",
-        start: "top 70%",
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1.5,
-    ease: "power3.out"
-});
-
-// 4. HORIZONTAL SCROLL PORTFOLIO (Fitur Expert)
-const scrollContainer = document.querySelector(".horizontal-scroll-content");
-
-gsap.to(scrollContainer, {
-    // Bergerak ke kiri sejauh total lebar konten dikurangi lebar layar
-    x: () => -(scrollContainer.scrollWidth - window.innerWidth + (window.innerWidth * 0.2)),
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".portfolio-section",
-        start: "top top", // Mulai saat section menyentuh atas layar
-        end: () => `+=${scrollContainer.scrollWidth}`, // Durasi scroll sepanjang lebar konten
-        pin: true, // Tahan layar agar tidak turun, tapi bergerak ke samping
-        scrub: 1, // Smooth scrub
-        invalidateOnRefresh: true // Kalkulasi ulang jika ukuran layar berubah
+        trigger: ".parallax-container",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
     }
 });
 
-// 5. FOOTER ANIMATION
-gsap.from(".footer-content h2, .cta-button", {
+// 3. PHILOSOPHY TEXT COLOR REVEAL
+gsap.to(".reveal-text", {
+    color: "#ffffff",
     scrollTrigger: {
-        trigger: ".footer-section",
+        trigger: ".philosophy-section",
+        start: "top 60%",
+        end: "bottom 80%",
+        scrub: true
+    }
+});
+
+// 4. SERVICES STAGGER
+gsap.from(".service-card", {
+    scrollTrigger: { trigger: ".services-section", start: "top 70%" },
+    y: 100, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+});
+
+// 5. PROCESS VERTICAL PARALLAX
+const steps = document.querySelectorAll(".process-step");
+steps.forEach(step => {
+    const speed = step.getAttribute("data-speed");
+    gsap.fromTo(step, 
+        { y: 200 }, 
+        { 
+            y: -200 * speed, 
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".process-section",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        }
+    );
+});
+
+// 6. HORIZONTAL SCROLL (SHOWCASE)
+const scrollContainer = document.querySelector(".horizontal-scroll-content");
+gsap.to(scrollContainer, {
+    x: () => -(scrollContainer.scrollWidth - window.innerWidth + 150),
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".portfolio-section",
+        start: "top top",
+        end: () => `+=${scrollContainer.scrollWidth}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true
+    }
+});
+
+// 7. STATISTICS NUMBER COUNTER
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+    let target = +counter.getAttribute('data-target');
+    ScrollTrigger.create({
+        trigger: ".stats-section",
         start: "top 80%",
-    },
-    y: 100,
-    opacity: 0,
-    stagger: 0.2,
-    duration: 1,
-    ease: "power4.out"
+        once: true,
+        onEnter: () => {
+            gsap.to(counter, {
+                innerHTML: target,
+                duration: 2,
+                snap: { innerHTML: 1 }, // Membulatkan angka agar tidak ada desimal
+                ease: "power2.out"
+            });
+        }
+    });
+});
+
+// 8. FOOTER FADE UP
+gsap.from(".footer-parallax", {
+    scrollTrigger: { trigger: ".footer-section", start: "top 80%" },
+    y: 50, opacity: 0, duration: 1.5, ease: "power3.out"
 });
