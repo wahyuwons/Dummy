@@ -1,53 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
+
+/* === GLOBAL === */
 body, html {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #030303;
+    color: #f0f0f0;
+    font-family: 'Space Grotesk', sans-serif;
     overflow-x: hidden;
-    background-color: #000;
-    color: white;
+    cursor: none; /* Menyembunyikan kursor bawaan */
 }
 
+/* === CUSTOM CURSOR === */
+.cursor {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background 0.3s;
+}
+
+/* === HERO SECTION === */
 .parallax-container {
     position: relative;
     width: 100%;
-    height: 100vh; /* Tinggi satu layar penuh */
+    height: 100vh;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
 .layer {
     position: absolute;
     width: 100%;
     height: 100%;
-    will-change: transform; /* Optimalisasi performa */
+    will-change: transform;
 }
-
-.layer img {
+.layer-bg img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Agar gambar memenuhi container tanpa distorsi */
+    object-fit: cover;
+    opacity: 0.4;
 }
-
-/* Mengatur tumpukan (Layering) */
-.layer-bg { z-index: 1; }
-.layer-mid { z-index: 2; display: flex; justify-content: center; align-items: center; }
-.layer-fg { z-index: 3; pointer-events: none; } /* Pointer-events agar teks di belakang bisa diklik */
-
-.hero-title {
-    font-size: 8rem;
-    font-weight: 900;
-    text-transform: uppercase;
+.layer-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.hero-content {
     text-align: center;
+    padding: 40px;
+}
+.hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    color: #a0a0a0;
+    margin-bottom: 20px;
+}
+.hero-title {
+    font-size: 6vw;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 0.05em;
     color: #fff;
-    -webkit-text-stroke: 2px #ff0055; /* Efek garis tepi gaya GTA */
+}
+.blueprint-grid {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.scroll-indicator span {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+}
+.scroll-indicator .line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, #fff, transparent);
 }
 
-.content {
-    height: 100vh;
-    padding: 100px;
-    background: #111;
+/* === PHILOSOPHY SECTION === */
+.philosophy-section {
+    padding: 150px 10%;
+    background: #050505;
+}
+.blueprint-lines {
+    border-left: 2px solid #222;
+    padding-left: 50px;
+    max-width: 800px;
+}
+.section-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    color: #666;
+    margin-bottom: 40px;
+}
+.reveal-text {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    font-weight: 300;
+    color: #ccc;
+}
+
+/* === HORIZONTAL PORTFOLIO SECTION === */
+.portfolio-section {
+    background: #0a0a0a;
+    overflow: hidden;
+}
+.portfolio-header {
+    padding: 100px 10% 50px;
+}
+.portfolio-header h2 {
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+}
+.portfolio-header p {
+    color: #888;
+    font-size: 1.1rem;
+}
+.horizontal-scroll-wrapper {
+    width: 100%;
+    height: 100vh; /* Memaksa wrapper setinggi layar agar pin bekerja */
+    display: flex;
+    align-items: center;
+}
+.horizontal-scroll-content {
+    display: flex;
+    gap: 50px;
+    padding: 0 10%;
+    width: max-content; /* Penting: agar lebar mengikuti jumlah gambar */
+}
+.portfolio-item {
+    width: 600px;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+}
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.portfolio-item:hover img {
+    transform: scale(1.05); /* Efek zoom saat di-hover */
+}
+.item-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    box-sizing: border-box;
+}
+.item-details h3 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+.item-details p {
+    margin: 10px 0 0 0;
+    color: #aaa;
+}
+
+/* === FOOTER === */
+.footer-section {
+    padding: 150px 10% 50px;
+    text-align: center;
+    background: #000;
+}
+.footer-content h2 {
+    font-size: 4rem;
+    margin-bottom: 50px;
+}
+.cta-button {
+    display: inline-block;
+    padding: 20px 50px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+.cta-button:hover {
+    background: #fff;
+    color: #000;
+}
+.footer-bottom {
+    margin-top: 150px;
+    border-top: 1px solid #222;
+    padding-top: 30px;
+    color: #555;
+    font-size: 0.8rem;
 }
