@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WONS INTERIOR | The Ultimate Architecture</title>
+    <title>WONS INTERIOR | Premium Architecture</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,18 +13,19 @@
     <main id="main-container">
         
         <section class="hero-section parallax-container">
-            <div class="layer layer-bg" data-speed="0.1">
+            <div class="layer layer-bg" data-speed="0.2">
                 <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000" alt="Dark Interior Background">
             </div>
             
-            <div class="layer layer-mid" data-speed="0.4">
+            <div class="layer layer-mid" data-speed="0.5">
                 <h1 class="hero-title-gta">WONS</h1>
             </div>
             
             <div class="layer layer-fg" data-speed="0.85">
-                <img src="https://images.unsplash.com/photo-1600607687959-ce8a6c25118c?q=80&w=2000" style="mix-blend-mode: multiply; opacity: 0.8;" alt="Foreground Plant">
-                <div class="blueprint-grid"></div>
+                <img src="https://images.unsplash.com/photo-1600607687959-ce8a6c25118c?q=80&w=2000" alt="Foreground">
             </div>
+
+            <div class="blueprint-overlay"></div>
 
             <div class="scroll-indicator">
                 <span>SYSTEM ONLINE // SCROLL</span>
@@ -35,58 +36,47 @@
         <section class="philosophy-section">
             <div class="container">
                 <h2 class="section-label">01 // FILOSOFI</h2>
-                <p class="reveal-text">Estetika tanpa logika adalah ilusi. Kami merancang ruang dengan perhitungan presisi, menggabungkan arsitektur struktural dengan visual *dark elegance* yang memukau.</p>
+                <p class="reveal-text">Estetika tanpa logika adalah ilusi. Kami merancang ruang dengan perhitungan presisi, menggabungkan arsitektur struktural dengan visual yang memukau.</p>
             </div>
         </section>
 
-        <section class="services-section">
-            <h2 class="section-label">02 // LAYANAN KAMI</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="card-line"></div>
-                    <h3>SPATIAL PLANNING</h3>
-                    <p>Pemetaan alur ruang dan zonasi dengan efisiensi maksimal.</p>
-                </div>
-                <div class="service-card">
-                    <div class="card-line"></div>
-                    <h3>COMMERCIAL DESIGN</h3>
-                    <p>Menciptakan representasi fisik dari identitas korporat Anda.</p>
-                </div>
-                <div class="service-card">
-                    <div class="card-line"></div>
-                    <h3>PHOTOREALISTIC RENDER</h3>
-                    <p>Visualisasi 3D tingkat tinggi sebelum konstruksi dimulai.</p>
-                </div>
-            </div>
-        </section>
+        <section class="blueprint-section">
+            <h2 class="section-label text-center">02 // ARCHITECTURAL BLUEPRINT</h2>
+            <div class="blueprint-canvas">
+                <div class="grid-line horizontal" style="top: 30%;"></div>
+                <div class="grid-line horizontal" style="top: 70%;"></div>
+                <div class="grid-line vertical" style="left: 33%;"></div>
+                <div class="grid-line vertical" style="left: 66%;"></div>
 
-        <section class="process-section">
-            <h2 class="section-label text-center">03 // BLUEPRINT WORKFLOW</h2>
-            <div class="process-container">
-                <div class="process-step" data-speed="0.9">
-                    <h1 class="step-num">1</h1>
-                    <h2>Konseptualisasi</h2>
+                <div class="blueprint-step" id="step-1">
+                    <span class="coord">[X: 12.0, Y: 45.2]</span>
+                    <h3>KONSEPTUALISASI</h3>
+                    <p>Pemetaan struktural awal dan analisis ruang.</p>
                 </div>
-                <div class="process-step" data-speed="0.6">
-                    <h1 class="step-num">2</h1>
-                    <h2>Skema Arsitektur</h2>
+                <div class="blueprint-step" id="step-2">
+                    <span class="coord">[X: 45.8, Y: 22.1]</span>
+                    <h3>SKEMA 3D RENDER</h3>
+                    <p>Visualisasi pencahayaan dan material fotorealistis.</p>
                 </div>
-                <div class="process-step" data-speed="0.3">
-                    <h1 class="step-num">3</h1>
-                    <h2>Eksekusi Presisi</h2>
+                <div class="blueprint-step" id="step-3">
+                    <span class="coord">[X: 78.4, Y: 60.5]</span>
+                    <h3>EKSEKUSI PRESISI</h3>
+                    <p>Implementasi konstruksi dengan toleransi deviasi 0.1%.</p>
                 </div>
             </div>
         </section>
 
         <section class="portfolio-section">
             <div class="portfolio-header">
-                <h2 class="section-label">04 // SHOWCASE</h2>
+                <h2 class="section-label">03 // SHOWCASE (HORIZONTAL PARALLAX)</h2>
             </div>
             <div class="horizontal-scroll-wrapper">
                 <div class="horizontal-scroll-content">
                     
                     <div class="portfolio-item">
-                        <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Kamar-1.png" alt="Kamar 1">
+                        <div class="image-wrapper">
+                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Kamar-1.png" alt="Kamar 1">
+                        </div>
                         <div class="item-details">
                             <h3>Master Bedroom</h3>
                             <p>Elemen Gelap & Pencahayaan Simetris</p>
@@ -94,7 +84,9 @@
                     </div>
 
                     <div class="portfolio-item">
-                        <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-9.png" alt="Rumah 9">
+                        <div class="image-wrapper">
+                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-9.png" alt="Rumah 9">
+                        </div>
                         <div class="item-details">
                             <h3>Modern Living</h3>
                             <p>Integrasi Ruang Terbuka</p>
@@ -102,18 +94,12 @@
                     </div>
 
                     <div class="portfolio-item">
-                        <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-8.png" alt="Rumah 8">
+                        <div class="image-wrapper">
+                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-8.png" alt="Rumah 8">
+                        </div>
                         <div class="item-details">
                             <h3>Structural Exterior</h3>
                             <p>Fasad Industrial Geometris</p>
-                        </div>
-                    </div>
-                    
-                    <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000" alt="Kitchen Minimalist">
-                        <div class="item-details">
-                            <h3>Culinary Core</h3>
-                            <p>Estetika Fungsional</p>
                         </div>
                     </div>
 
@@ -121,28 +107,10 @@
             </div>
         </section>
 
-        <section class="stats-section">
-            <div class="stat-box">
-                <h2 class="counter" data-target="150">0</h2>
-                <p>PROYEK SELESAI</p>
-            </div>
-            <div class="stat-box">
-                <h2 class="counter" data-target="45">0</h2>
-                <p>PENGHARGAAN DESAIN</p>
-            </div>
-            <div class="stat-box">
-                <h2 class="counter" data-target="12">0</h2>
-                <p>KOTA TERJANGKAU</p>
-            </div>
-        </section>
-
         <section class="footer-section">
             <div class="footer-parallax">
                 <h2>INISIASI PROYEK ANDA.</h2>
                 <a href="#" class="cta-button">HUBUNGI KAMI</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 WONS Architecture. System Terminated.</p>
             </div>
         </section>
 
