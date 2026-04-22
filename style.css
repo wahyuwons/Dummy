@@ -1,225 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Syncopate:wght@700&display=swap');
 
 /* === GLOBAL === */
 body, html {
-    margin: 0;
-    padding: 0;
-    background-color: #030303;
-    color: #f0f0f0;
+    margin: 0; padding: 0;
+    background-color: #050505; color: #e0e0e0;
     font-family: 'Space Grotesk', sans-serif;
-    overflow-x: hidden;
-    cursor: none; /* Menyembunyikan kursor bawaan */
+    overflow-x: hidden; cursor: none;
 }
 
-/* === CUSTOM CURSOR === */
+/* === CURSOR === */
 .cursor {
-    width: 8px;
-    height: 8px;
-    background: #fff;
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
+    width: 6px; height: 6px; background: #fff;
+    border-radius: 50%; position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
 }
 .cursor-follower {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, background 0.3s;
+    width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%; position: fixed; top: 0; left: 0;
+    pointer-events: none; z-index: 9998; transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
 }
 
-/* === HERO SECTION === */
-.parallax-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+/* === UTILITY TABS === */
+.section-label {
+    font-size: 0.8rem; letter-spacing: 0.4em; color: #555;
+    margin-bottom: 20px; font-family: monospace; border-bottom: 1px solid #222;
+    padding-bottom: 10px; display: inline-block;
 }
-.layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    will-change: transform;
-}
-.layer-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.4;
-}
-.layer-mid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-.hero-content {
-    text-align: center;
-    padding: 40px;
-}
-.hero-subtitle {
-    font-size: 0.9rem;
-    letter-spacing: 0.4em;
-    color: #a0a0a0;
-    margin-bottom: 20px;
-}
-.hero-title {
-    font-size: 6vw;
-    font-weight: 700;
+.text-center { text-align: center; display: block; margin: 0 auto 50px; }
+
+/* === SEC 1: HERO GTA STYLE === */
+.parallax-container { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+.layer { position: absolute; width: 100%; height: 100%; will-change: transform; }
+.layer-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; filter: brightness(0.5); }
+.layer-mid { display: flex; justify-content: center; align-items: center; z-index: 2; }
+
+/* Teks ala GTA (Stroke tebal, bolong di tengah) */
+.hero-title-gta {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 15vw;
     margin: 0;
-    letter-spacing: 0.05em;
-    color: #fff;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 50px rgba(255,255,255,0.1);
 }
+
+.layer-fg { z-index: 3; pointer-events: none; }
+.layer-fg img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); }
 .blueprint-grid {
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-}
-.scroll-indicator {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-.scroll-indicator span {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-}
-.scroll-indicator .line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, #fff, transparent);
+    position: absolute; top:0; left:0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px; z-index: 4;
 }
 
-/* === PHILOSOPHY SECTION === */
-.philosophy-section {
-    padding: 150px 10%;
-    background: #050505;
-}
-.blueprint-lines {
-    border-left: 2px solid #222;
-    padding-left: 50px;
-    max-width: 800px;
-}
-.section-title {
-    font-size: 1.2rem;
-    letter-spacing: 0.3em;
-    color: #666;
-    margin-bottom: 40px;
-}
-.reveal-text {
-    font-size: 2.5rem;
-    line-height: 1.4;
-    font-weight: 300;
-    color: #ccc;
-}
+/* === SEC 2: PHILOSOPHY === */
+.philosophy-section { padding: 150px 10%; background: #080808; border-top: 1px solid #111; }
+.reveal-text { font-size: 3rem; line-height: 1.3; font-weight: 300; color: #888; max-width: 1000px; }
 
-/* === HORIZONTAL PORTFOLIO SECTION === */
-.portfolio-section {
-    background: #0a0a0a;
-    overflow: hidden;
-}
-.portfolio-header {
-    padding: 100px 10% 50px;
-}
-.portfolio-header h2 {
-    font-size: 3rem;
-    margin: 0 0 10px 0;
-}
-.portfolio-header p {
-    color: #888;
-    font-size: 1.1rem;
-}
-.horizontal-scroll-wrapper {
-    width: 100%;
-    height: 100vh; /* Memaksa wrapper setinggi layar agar pin bekerja */
-    display: flex;
-    align-items: center;
-}
-.horizontal-scroll-content {
-    display: flex;
-    gap: 50px;
-    padding: 0 10%;
-    width: max-content; /* Penting: agar lebar mengikuti jumlah gambar */
-}
-.portfolio-item {
-    width: 600px;
-    height: 70vh;
-    position: relative;
-    overflow: hidden;
-}
-.portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-.portfolio-item:hover img {
-    transform: scale(1.05); /* Efek zoom saat di-hover */
-}
-.item-details {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 40px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    box-sizing: border-box;
-}
-.item-details h3 {
-    margin: 0;
-    font-size: 1.8rem;
-}
-.item-details p {
-    margin: 10px 0 0 0;
-    color: #aaa;
-}
+/* === SEC 3: SERVICES === */
+.services-section { padding: 100px 10%; background: #050505; }
+.services-grid { display: flex; gap: 40px; margin-top: 50px; }
+.service-card { flex: 1; padding: 40px; background: #0a0a0a; border: 1px solid #1a1a1a; position: relative; }
+.card-line { position: absolute; top: 0; left: 0; width: 0%; height: 2px; background: #fff; transition: 0.4s; }
+.service-card:hover .card-line { width: 100%; }
 
-/* === FOOTER === */
-.footer-section {
-    padding: 150px 10% 50px;
-    text-align: center;
-    background: #000;
-}
-.footer-content h2 {
-    font-size: 4rem;
-    margin-bottom: 50px;
-}
-.cta-button {
-    display: inline-block;
-    padding: 20px 50px;
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    letter-spacing: 0.2em;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-}
-.cta-button:hover {
-    background: #fff;
-    color: #000;
-}
-.footer-bottom {
-    margin-top: 150px;
-    border-top: 1px solid #222;
-    padding-top: 30px;
-    color: #555;
-    font-size: 0.8rem;
-}
+/* === SEC 4: PROCESS PARALLAX === */
+.process-section { padding: 150px 10%; background: #030303; height: 120vh; position: relative; }
+.process-container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+.process-step { width: 30%; text-align: center; border: 1px solid #222; padding: 50px 20px; background: rgba(10,10,10,0.8); backdrop-filter: blur(5px); }
+.step-num { font-size: 5rem; color: #222; margin: 0; font-family: 'Syncopate'; }
+
+/* === SEC 5: HORIZONTAL SCROLL === */
+.portfolio-section { background: #000; overflow: hidden; border-top: 1px solid #111; }
+.portfolio-header { padding: 80px 10% 20px; }
+.horizontal-scroll-wrapper { width: 100%; height: 100vh; display: flex; align-items: center; }
+.horizontal-scroll-content { display: flex; gap: 60px; padding: 0 10%; width: max-content; }
+.portfolio-item { width: 700px; height: 75vh; position: relative; overflow: hidden; border: 1px solid #222; }
+.portfolio-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: 0.5s; }
+.portfolio-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
+.item-details { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; background: linear-gradient(to top, #000, transparent); }
+
+/* === SEC 6: STATS === */
+.stats-section { display: flex; justify-content: space-around; padding: 100px 10%; background: #080808; border-top: 1px solid #111; }
+.stat-box { text-align: center; }
+.counter { font-size: 4rem; margin: 0; color: #fff; font-family: 'Syncopate'; }
+.stat-box p { color: #666; letter-spacing: 0.2em; font-size: 0.8rem; }
+
+/* === SEC 7: FOOTER === */
+.footer-section { padding: 150px 10% 50px; text-align: center; background: #050505; }
+.footer-parallax h2 { font-size: 4rem; margin-bottom: 40px; }
+.cta-button { display: inline-block; padding: 20px 60px; border: 1px solid #fff; color: #fff; text-decoration: none; letter-spacing: 0.3em; transition: 0.3s; }
+.cta-button:hover { background: #fff; color: #000; }
+.footer-bottom { margin-top: 100px; border-top: 1px solid #111; padding-top: 30px; font-size: 0.8rem; color: #444; }
