@@ -1,0 +1,53 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+    background-color: #000;
+    color: white;
+}
+
+.parallax-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Tinggi satu layar penuh */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    will-change: transform; /* Optimalisasi performa */
+}
+
+.layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Agar gambar memenuhi container tanpa distorsi */
+}
+
+/* Mengatur tumpukan (Layering) */
+.layer-bg { z-index: 1; }
+.layer-mid { z-index: 2; display: flex; justify-content: center; align-items: center; }
+.layer-fg { z-index: 3; pointer-events: none; } /* Pointer-events agar teks di belakang bisa diklik */
+
+.hero-title {
+    font-size: 8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    -webkit-text-stroke: 2px #ff0055; /* Efek garis tepi gaya GTA */
+}
+
+.content {
+    height: 100vh;
+    padding: 100px;
+    background: #111;
+}
