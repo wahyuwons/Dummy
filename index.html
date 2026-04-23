@@ -1,570 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grand Theft Auto VI — Rockstar Games</title>
-  <meta name="description" content="Grand Theft Auto VI. Coming November 19, 2026. PlayStation 5 and Xbox Series X|S."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WW INTERIOR | Kesempurnaan Ruang</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="cursor"></div>
 
-<!-- ══════════════════════════════════
-     CUSTOM CURSOR
-══════════════════════════════════════ -->
-<div id="cursor">
-  <div id="cur-inner"></div>
-  <div id="cur-outer"></div>
-  <div id="cur-label"></div>
-</div>
-
-<!-- ══════════════════════════════════
-     LOADER
-══════════════════════════════════════ -->
-<div id="loader">
-  <canvas id="loader-canvas"></canvas>
-  <div class="ld-center">
-    <div class="ld-logo">
-      <svg viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="48" font-family="Barlow Condensed" font-weight="900" font-size="52" fill="#fff" letter-spacing="-1">ROCKSTAR</text>
-      </svg>
-    </div>
-    <div class="ld-bar-wrap">
-      <div class="ld-bar" id="ld-bar"></div>
-      <div class="ld-bar-glow" id="ld-bar-glow"></div>
-    </div>
-    <div class="ld-pct"><span id="ld-num">0</span><span>%</span></div>
-  </div>
-  <div class="ld-star-field" id="ld-stars"></div>
-</div>
-
-<!-- ══════════════════════════════════
-     NOISE OVERLAY
-══════════════════════════════════════ -->
-<div id="noise"></div>
-
-<!-- ══════════════════════════════════
-     NAV
-══════════════════════════════════════ -->
-<header id="nav">
-  <div class="nav-inner">
-    <!-- Rockstar R* Logo -->
-    <a href="#" class="nav-rstar" id="nav-logo" aria-label="Rockstar Games">
-      <svg viewBox="0 0 60 60" fill="none">
-        <path d="M30 5 L55 18 L55 42 L30 55 L5 42 L5 18 Z" fill="none" stroke="#fff" stroke-width="1.5"/>
-        <text x="15" y="38" font-family="Barlow Condensed" font-weight="900" font-size="22" fill="#fff">R*</text>
-      </svg>
-    </a>
-    <!-- GTA VI wordmark center -->
-    <div class="nav-title" id="nav-title">
-      <span>Grand Theft Auto</span>
-      <span class="nav-vi">VI</span>
-    </div>
-    <!-- Nav right -->
-    <nav class="nav-right" id="nav-links">
-      <a href="#story"      class="nl" data-mag>Story</a>
-      <a href="#characters" class="nl" data-mag>Characters</a>
-      <a href="#locations"  class="nl" data-mag>Locations</a>
-      <a href="#wishlist"   class="nl nl-cta" data-mag>Wishlist Now</a>
-    </nav>
-    <button class="nav-ham" id="nav-ham" aria-label="Menu">
-      <span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<!-- Mobile nav -->
-<div id="mob-nav">
-  <a href="#story"      class="mnl">Story</a>
-  <a href="#characters" class="mnl">Characters</a>
-  <a href="#locations"  class="mnl">Locations</a>
-  <a href="#wishlist"   class="mnl">Wishlist</a>
-</div>
-
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
-<section id="hero">
-  <!-- Layered cinematic bg -->
-  <canvas id="hero-canvas" class="hero-canvas"></canvas>
-
-  <!-- Atmospheric layers -->
-  <div class="hero-layer hero-bg-img"></div>
-  <div class="hero-layer hero-scanlines"></div>
-  <div class="hero-layer hero-vignette"></div>
-  <div class="hero-layer hero-color-grade"></div>
-
-  <!-- Floating particles -->
-  <canvas id="hero-particles" class="hero-particles"></canvas>
-
-  <!-- Content -->
-  <div class="hero-content" id="hero-content">
-    <!-- GTA VI Logo -->
-    <div class="hero-logo-wrap" id="hero-logo">
-      <svg class="hero-logo-svg" viewBox="0 0 800 200" fill="none">
-        <text x="50%" y="160" text-anchor="middle"
-              font-family="Barlow Condensed" font-weight="900"
-              font-size="180" fill="none"
-              stroke="url(#logoGrad)" stroke-width="2"
-              letter-spacing="-4">
-          GRAND THEFT AUTO
-        </text>
-        <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="50%" stop-color="#e8c46a"/>
-            <stop offset="100%" stop-color="#b8843a"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <div class="hero-vi-wrap">
-        <div class="hero-vi" id="hero-vi">VI</div>
-        <div class="hero-vi-glow"></div>
-      </div>
+    <div class="preloader">
+        <h1 class="counter">0%</h1>
     </div>
 
-    <!-- Release date -->
-    <div class="hero-release" id="hero-release">
-      <div class="hr-line"></div>
-      <span>Coming</span>
-      <strong>November 19, 2026</strong>
-      <div class="hr-line"></div>
-    </div>
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
 
-    <!-- Platforms -->
-    <div class="hero-platforms" id="hero-platforms">
-      <div class="platform-badge">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-        PlayStation 5
-      </div>
-      <div class="platform-sep">|</div>
-      <div class="platform-badge">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 2C6.47 2 2 6.48 2 12s4.47 10 9.9999 10C17.52 22 22 17.52 22 12S17.52 2 11.9999 2zm3.0001 14.5h-2v-5h2v5zm0-7h-2V7.5h2V9.5z"/></svg>
-        Xbox Series X|S
-      </div>
-    </div>
+            <section class="hero">
+                <div class="hero-text-container">
+                    <h1 class="hero-title" id="title-w1">WW</h1>
+                    <h1 class="hero-title" id="title-w2">INTERIOR</h1>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000" class="hero-img" alt="WW Interior Main">
+                </div>
+                <div class="scroll-down">GULIR KE BAWAH</div>
+            </section>
 
-    <!-- CTA -->
-    <div class="hero-ctas" id="hero-ctas">
-      <button class="btn-trailer" id="btn-trailer-hero" data-mag>
-        <span class="btn-t-play">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </span>
-        <span>Watch Trailer 1</span>
-      </button>
-      <button class="btn-trailer btn-trailer-2" id="btn-trailer2-hero" data-mag>
-        <span class="btn-t-play">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </span>
-        <span>Watch Trailer 2</span>
-      </button>
-    </div>
+            <section class="intro-section">
+                <div class="intro-text">
+                    <p class="stooff-reveal">KAMI BUKAN HANYA MERANCANG RUANG. KAMI MENCIPTAKAN PENGALAMAN VISUAL YANG PRESISI, MENGGABUNGKAN ESTETIKA GELAP DENGAN FUNGSIONALITAS STRUKTURAL TANPA KOMPROMI.</p>
+                </div>
+            </section>
 
-    <!-- Scroll hint -->
-    <div class="hero-scroll-hint" id="hero-scroll-hint">
-      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-      <span>Scroll for more</span>
-    </div>
-  </div>
+            <section class="gallery-section">
+                <div class="gallery-header">
+                    <h2>PROYEK TERPILIH</h2>
+                    <p>Mahakarya Residensial & Komersial</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item item-left">
+                        <div class="img-mask">
+                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Kamar-1.png" alt="Kamar 1">
+                        </div>
+                        <h3>Ruang Tidur Utama</h3>
+                        <p>Simetri & Keteduhan</p>
+                    </div>
 
-  <!-- Foreground character silhouette -->
-  <div class="hero-fg" id="hero-fg">
-    <canvas id="fg-canvas"></canvas>
-  </div>
-</section>
+                    <div class="gallery-item item-right" data-speed="1.2">
+                        <div class="img-mask">
+                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-9.png" alt="Rumah 9">
+                        </div>
+                        <h3>Ruang Keluarga</h3>
+                        <p>Konsep Terbuka Modern</p>
+                    </div>
 
-<!-- ══════════════════════════════════
-     STORY INTRO
-══════════════════════════════════════ -->
-<section id="story" class="sec-story">
-  <div class="story-bg"></div>
-  <div class="story-inner">
-    <div class="story-tagline" data-reveal>
-      <div class="st-line"><span>Vice City, USA.</span></div>
-    </div>
-    <div class="story-body">
-      <p class="story-p" data-reveal>
-        Jason and Lucia have always known the deck is stacked against them. But when an easy score goes wrong, they find themselves on the darkest side of the sunniest place in America, in the middle of a criminal conspiracy stretching across the state of Leonida — forced to rely on each other more than ever if they want to make it out alive.
-      </p>
-    </div>
-    <!-- Ambient art -->
-    <div class="story-art" data-reveal>
-      <div class="story-art-inner" id="story-canvas-wrap">
-        <canvas id="story-canvas"></canvas>
-        <div class="story-art-overlay"></div>
-        <div class="story-art-label">Leonida State, USA</div>
-      </div>
-    </div>
-  </div>
-</section>
+                    <div class="gallery-item item-center">
+                        <div class="img-mask">
+                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-8.png" alt="Rumah 8">
+                        </div>
+                        <h3>Fasad Eksterior</h3>
+                        <p>Industrial Geometris</p>
+                    </div>
+                </div>
+            </section>
 
-<!-- ══════════════════════════════════
-     CHARACTERS — HORIZONTAL SCROLL
-══════════════════════════════════════ -->
-<section id="characters">
-  <div class="chars-sticky" id="chars-sticky">
-    <div class="chars-track" id="chars-track">
+            <section class="footer">
+                <h1 class="massive-text">MARI BERDISKUSI.</h1>
+                <div class="footer-links">
+                    <a href="#">INSTAGRAM</a>
+                    <a href="#">EMAIL</a>
+                    <a href="#">WHATSAPP</a>
+                </div>
+                <p class="copyright">© 2026 WW INTERIOR. Hak Cipta Dilindungi.</p>
+            </section>
 
-      <!-- INTRO PANEL -->
-      <div class="char-panel char-intro-panel">
-        <canvas class="char-bg-canvas" data-char="intro"></canvas>
-        <div class="char-intro-content">
-          <div class="ci-eyebrow">Meet the cast</div>
-          <h2 class="ci-title">The World<br/>of Leonida</h2>
-          <p class="ci-body">A state where paradise meets peril. Everyone's running from something — or someone.</p>
-          <div class="ci-arrow">
-            <svg viewBox="0 0 40 20" fill="none">
-              <path d="M0 10 L35 10 M25 2 L35 10 L25 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Scroll to explore
-          </div>
         </div>
-      </div>
+    </main>
 
-      <!-- JASON -->
-      <div class="char-panel" data-char="jason">
-        <canvas class="char-bg-canvas" data-char="jason"></canvas>
-        <div class="char-portrait" id="portrait-jason">
-          <canvas class="portrait-canvas" data-portrait="jason"></canvas>
-        </div>
-        <div class="char-info" data-char-side="left">
-          <div class="char-num">01</div>
-          <h3 class="char-name">Jason<br/><em>Duval</em></h3>
-          <div class="char-quote">"Jason wants an easy life, but things just keep getting harder."</div>
-          <p class="char-bio">Jason grew up around grifters and crooks. After a stint in the Army trying to shake off his troubled teens, he found himself in the Keys doing what he knows best — working for local drug runners. It might be time to try something new.</p>
-          <div class="char-tags">
-            <span>Protagonist</span>
-            <span>The Keys</span>
-            <span>Army Veteran</span>
-          </div>
-        </div>
-        <div class="char-quote-float" data-float-quote>
-          "Another day in paradise, right?"
-        </div>
-      </div>
-
-      <!-- LUCIA -->
-      <div class="char-panel" data-char="lucia">
-        <canvas class="char-bg-canvas" data-char="lucia"></canvas>
-        <div class="char-portrait" id="portrait-lucia">
-          <canvas class="portrait-canvas" data-portrait="lucia"></canvas>
-        </div>
-        <div class="char-info" data-char-side="right">
-          <div class="char-num">02</div>
-          <h3 class="char-name">Lucia<br/><em>Caminos</em></h3>
-          <div class="char-quote">"Lucia's father taught her to fight as soon as she could walk."</div>
-          <p class="char-bio">Life has been coming at her swinging ever since. Fighting for her family landed her in Leonida Penitentiary. Sheer luck got her out. Lucia's learned her lesson — only smart moves from here.</p>
-          <div class="char-tags">
-            <span>Protagonist</span>
-            <span>Vice City</span>
-            <span>Ex-Convict</span>
-          </div>
-        </div>
-        <div class="char-quote-float" data-float-quote>
-          "The only thing that matters is who you know and what you got."
-        </div>
-      </div>
-
-      <!-- CAL HAMPTON -->
-      <div class="char-panel" data-char="cal">
-        <canvas class="char-bg-canvas" data-char="cal"></canvas>
-        <div class="char-portrait" id="portrait-cal">
-          <canvas class="portrait-canvas" data-portrait="cal"></canvas>
-        </div>
-        <div class="char-video-wrap" id="cal-video-wrap">
-          <div class="char-video-poster" data-portrait="cal-poster"></div>
-          <button class="char-rewatch" data-video="cal" data-mag>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            Rewatch Video
-          </button>
-        </div>
-        <div class="char-info" data-char-side="left">
-          <div class="char-num">03</div>
-          <h3 class="char-name">Cal<br/><em>Hampton</em></h3>
-          <div class="char-quote">"What if everything on the internet was true?"</div>
-          <p class="char-bio">Jason's friend and fellow associate of Brian's. Cal feels safest hanging at home, snooping on Coast Guard comms with a few beers and some private browser tabs open.</p>
-          <div class="char-tags">
-            <span>Ally</span>
-            <span>The Keys</span>
-            <span>Conspiracy</span>
-          </div>
-        </div>
-        <div class="char-quote-float" data-float-quote>
-          "There are way too many birds flying around in perfect formation."
-        </div>
-      </div>
-
-      <!-- BOOBIE IKE -->
-      <div class="char-panel" data-char="boobie">
-        <canvas class="char-bg-canvas" data-char="boobie"></canvas>
-        <div class="char-portrait" id="portrait-boobie">
-          <canvas class="portrait-canvas" data-portrait="boobie"></canvas>
-        </div>
-        <div class="char-info" data-char-side="right">
-          <div class="char-num">04</div>
-          <h3 class="char-name">Boobie<br/><em>Ike</em></h3>
-          <div class="char-quote">"It's all about heart — the Jack of Hearts."</div>
-          <p class="char-bio">Boobie is a local Vice City legend — and acts like it. One of the few to transform his time in the streets into a legitimate empire spanning real estate, a strip club, and a recording studio.</p>
-          <div class="char-tags">
-            <span>Associate</span>
-            <span>Vice City</span>
-            <span>Entrepreneur</span>
-          </div>
-        </div>
-        <div class="char-quote-float" data-float-quote>
-          "The club money pay for the studio, and the drug money pay for it all."
-        </div>
-      </div>
-
-      <!-- DRE'QUAN -->
-      <div class="char-panel" data-char="drequan">
-        <canvas class="char-bg-canvas" data-char="drequan"></canvas>
-        <div class="char-portrait" id="portrait-drequan">
-          <canvas class="portrait-canvas" data-portrait="drequan"></canvas>
-        </div>
-        <div class="char-info" data-char-side="left">
-          <div class="char-num">05</div>
-          <h3 class="char-name">Dre'Quan<br/><em>Priest</em></h3>
-          <div class="char-quote">"Only Raw... Records"</div>
-          <p class="char-bio">Dre'Quan was always more of a hustler than a gangster. Even when he was dealing on the streets to make ends meet, breaking into music was the goal.</p>
-          <div class="char-tags">
-            <span>Music Mogul</span>
-            <span>Vice City</span>
-            <span>Only Raw Records</span>
-          </div>
-        </div>
-        <div class="char-quote-float" data-float-quote>
-          "You're with the label now."
-        </div>
-      </div>
-
-      <!-- RAUL -->
-      <div class="char-panel" data-char="raul">
-        <canvas class="char-bg-canvas" data-char="raul"></canvas>
-        <div class="char-portrait" id="portrait-raul">
-          <canvas class="portrait-canvas" data-portrait="raul"></canvas>
-        </div>
-        <div class="char-info" data-char-side="right">
-          <div class="char-num">06</div>
-          <h3 class="char-name">Raul<br/><em>Bautista</em></h3>
-          <div class="char-quote">"Experience counts."</div>
-          <p class="char-bio">Confidence, charm, and cunning — Raul's a seasoned bank robber always on the hunt for talent ready to take the risks that bring the biggest rewards.</p>
-          <div class="char-tags">
-            <span>Crew Leader</span>
-            <span>Leonida</span>
-            <span>Bank Robber</span>
-          </div>
-        </div>
-        <div class="char-quote-float" data-float-quote>
-          "A professional adapts."
-        </div>
-      </div>
-
-      <!-- BRIAN -->
-      <div class="char-panel" data-char="brian">
-        <canvas class="char-bg-canvas" data-char="brian"></canvas>
-        <div class="char-portrait" id="portrait-brian">
-          <canvas class="portrait-canvas" data-portrait="brian"></canvas>
-        </div>
-        <div class="char-info" data-char-side="left">
-          <div class="char-num">07</div>
-          <h3 class="char-name">Brian<br/><em>Heder</em></h3>
-          <div class="char-quote">"Nothing better than a Mudslide at sunset."</div>
-          <p class="char-bio">Brian's a classic drug runner from the golden age of smuggling in the Keys. Still moving product through his boat yard with his third wife, Lori. Brian's been around long enough to let others do his dirty work.</p>
-          <div class="char-tags">
-            <span>Crime Boss</span>
-            <span>The Keys</span>
-            <span>Smuggler</span>
-          </div>
-        </div>
-        <div class="char-quote-float" data-float-quote>
-          "Looks like a Leonida beach bum — moves like a great white shark."
-        </div>
-      </div>
-
-    </div><!-- /chars-track -->
-
-    <!-- Progress dots -->
-    <div class="chars-progress" id="chars-progress">
-      <div class="cp-dot active" data-idx="0"></div>
-      <div class="cp-dot" data-idx="1"></div>
-      <div class="cp-dot" data-idx="2"></div>
-      <div class="cp-dot" data-idx="3"></div>
-      <div class="cp-dot" data-idx="4"></div>
-      <div class="cp-dot" data-idx="5"></div>
-      <div class="cp-dot" data-idx="6"></div>
-      <div class="cp-dot" data-idx="7"></div>
-    </div>
-  </div><!-- /chars-sticky -->
-</section>
-
-<!-- ══════════════════════════════════
-     LOCATIONS
-══════════════════════════════════════ -->
-<section id="locations" class="sec-locations">
-  <div class="loc-header" data-reveal>
-    <div class="loc-eyebrow">Tour Leonida</div>
-    <h2 class="loc-title">Must-See<br/><em>Destinations</em></h2>
-    <p class="loc-sub">A few of the iconic spots scattered across the Sunshine State.</p>
-  </div>
-
-  <div class="loc-grid">
-    <div class="loc-card" data-loc-card>
-      <canvas class="loc-canvas" data-loc="vice-city"></canvas>
-      <div class="loc-overlay"></div>
-      <div class="loc-info">
-        <div class="loc-name">Vice City</div>
-        <div class="loc-explore">Explore →</div>
-      </div>
-    </div>
-    <div class="loc-card" data-loc-card>
-      <canvas class="loc-canvas" data-loc="leonida-keys"></canvas>
-      <div class="loc-overlay"></div>
-      <div class="loc-info">
-        <div class="loc-name">Leonida Keys</div>
-        <div class="loc-explore">Explore →</div>
-      </div>
-    </div>
-    <div class="loc-card" data-loc-card>
-      <canvas class="loc-canvas" data-loc="grassrivers"></canvas>
-      <div class="loc-overlay"></div>
-      <div class="loc-info">
-        <div class="loc-name">Grassrivers</div>
-        <div class="loc-explore">Explore →</div>
-      </div>
-    </div>
-    <div class="loc-card" data-loc-card>
-      <canvas class="loc-canvas" data-loc="port-gellhorn"></canvas>
-      <div class="loc-overlay"></div>
-      <div class="loc-info">
-        <div class="loc-name">Port Gellhorn</div>
-        <div class="loc-explore">Explore →</div>
-      </div>
-    </div>
-    <div class="loc-card loc-card-wide" data-loc-card>
-      <canvas class="loc-canvas" data-loc="ambrosia"></canvas>
-      <div class="loc-overlay"></div>
-      <div class="loc-info">
-        <div class="loc-name">Ambrosia</div>
-        <div class="loc-explore">Explore →</div>
-      </div>
-    </div>
-    <div class="loc-card" data-loc-card>
-      <canvas class="loc-canvas" data-loc="mount-kalaga"></canvas>
-      <div class="loc-overlay"></div>
-      <div class="loc-info">
-        <div class="loc-name">Mount Kalaga</div>
-        <div class="loc-explore">Explore →</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     OUTRO BANNER
-══════════════════════════════════════ -->
-<section id="outro" class="sec-outro">
-  <canvas id="outro-canvas"></canvas>
-  <div class="outro-content">
-    <div class="outro-quote" data-reveal>"Only in Leonida"</div>
-    <div class="outro-sub" data-reveal>When the sun fades and the neon glows, everyone has something to gain — and more to lose.</div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     WISHLIST / PRE-ORDER
-══════════════════════════════════════ -->
-<section id="wishlist" class="sec-wishlist">
-  <canvas id="wish-canvas"></canvas>
-  <div class="wish-inner">
-    <!-- Logo repeat -->
-    <div class="wish-logo" data-reveal>
-      <div class="wish-gta">GRAND THEFT AUTO</div>
-      <div class="wish-vi">VI</div>
-    </div>
-    <div class="wish-date" data-reveal>Coming November 19, 2026</div>
-    <div class="wish-btns" data-reveal>
-      <a href="#" class="wish-btn wish-ps5" data-mag>
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20"><circle cx="12" cy="12" r="10"/></svg>
-        Wishlist on PlayStation 5
-      </a>
-      <a href="#" class="wish-btn wish-xbox" data-mag>
-        <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
-        Wishlist on Xbox Series X|S
-      </a>
-    </div>
-    <div class="wish-email-row" data-reveal>
-      <div class="wish-email-label">Get Rockstar Propaganda</div>
-      <div class="wish-email-sub">The latest game announcements, updates on special events and offers, and much more.</div>
-      <form class="wish-form" onsubmit="return false;">
-        <input type="email" placeholder="Enter your email" class="wish-input"/>
-        <button type="submit" class="wish-submit" data-mag>Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
-<footer id="footer">
-  <div class="ft-top">
-    <a href="#" class="ft-rstar" aria-label="Rockstar Games">
-      <svg viewBox="0 0 60 60" fill="none">
-        <path d="M30 4 L56 18 L56 42 L30 56 L4 42 L4 18 Z" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
-        <text x="13" y="38" font-family="Barlow Condensed" font-weight="900" font-size="22" fill="rgba(255,255,255,.5)">R*</text>
-      </svg>
-    </a>
-  </div>
-  <nav class="ft-nav">
-    <a href="#">Corporate</a>
-    <a href="#">Privacy</a>
-    <a href="#">Cookie Settings</a>
-    <a href="#">Cookie Policy</a>
-    <a href="#">Legal</a>
-    <a href="#">Do Not Sell or Share My Personal Information</a>
-  </nav>
-  <div class="ft-rating">
-    <div class="ft-esrb">
-      <span class="esrb-badge">M</span>
-      <div class="esrb-text">
-        <div>Mature 17+</div>
-        <div class="esrb-sub">May contain content inappropriate for children. Visit esrb.org for rating information.</div>
-      </div>
-    </div>
-  </div>
-  <div class="ft-copy">© 2025 Rockstar Games, Inc. Grand Theft Auto and related marks and logos are trademarks and/or registered trademarks of Take-Two Interactive Software, Inc. All other marks and trademarks are properties of their respective owners. All rights reserved.</div>
-</footer>
-
-<!-- ══════════════════════════════════
-     VIDEO MODAL
-══════════════════════════════════════ -->
-<div id="video-modal">
-  <div class="vm-overlay" id="vm-overlay"></div>
-  <div class="vm-inner">
-    <div class="vm-close" id="vm-close" data-mag>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <line x1="18" y1="6" x2="6" y2="18"/>
-        <line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </div>
-    <div class="vm-player">
-      <canvas id="vm-canvas"></canvas>
-      <div class="vm-play-btn" id="vm-play-btn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="vm-title" id="vm-title">Grand Theft Auto VI — Official Trailer</div>
-      <div class="vm-sub">Available November 19, 2026</div>
-    </div>
-  </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
-<script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
