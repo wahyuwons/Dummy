@@ -612,6 +612,8 @@ function initAllAnimations() {
     initFooter();
     initMagneticLogo();
     initSectionLines();
+    initWorks();
+    initDesignRail();
 
     // Final refresh after images loaded
     window.addEventListener('load', () => {
@@ -622,5 +624,256 @@ function initAllAnimations() {
 
 /* ─── Start preloader on DOM ready ─────────────────────── */
 window.addEventListener('DOMContentLoaded', () => {
+  initPreloader();
+});
+
+/* ═══════════════════════════════════════════════════════════
+   WORKS SECTION — filter + stagger reveal + tilt
+═══════════════════════════════════════════════════════════ */
+function initWorks() {
+  /* ── Staggered entrance ── */
+  gsap.from('.wc', {
+    opacity: 0, y: 60, scale: 0.96,
+    stagger: { amount: 0.6, from: 'start' },
+    duration: 0.9, ease: 'expo.out',
+    scrollTrigger: { trigger: '.works-bento', start: 'top 80%' }
+  });
+
+  /* ── Filter buttons ── */
+  const filterBtns = document.querySelectorAll('.wf-btn');
+  const cards      = document.querySelectorAll('.wc');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        const cat = card.dataset.cat;
+        const show = filter === 'all' || cat === filter;
+
+        if (show) {
+          card.classList.remove('hidden-card');
+          gsap.to(card, { opacity: 1, scale: 1, duration: 0.45, ease: 'expo.out' });
+        } else {
+          card.classList.add('hidden-card');
+          gsap.to(card, { opacity: 0, scale: 0.93, duration: 0.35, ease: 'power2.in' });
+        }
+      });
+
+      // Also handle the .wc-split container visibility
+      const splitEl = document.querySelector('.wc-split');
+      if (splitEl) {
+        const halfCards = splitEl.querySelectorAll('.wc');
+        const anyVisible = [...halfCards].some(c => !c.classList.contains('hidden-card'));
+        gsap.to(splitEl, { opacity: anyVisible ? 1 : 0, duration: 0.35 });
+      }
+    });
+  });
+
+  /* ── 3D tilt per card ── */
+  document.querySelectorAll('.wc').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const x  = (e.clientX - r.left) / r.width  - 0.5;
+      const y  = (e.clientY - r.top)  / r.height - 0.5;
+      gsap.to(card, {
+        rotationY: x * 7, rotationX: -y * 5,
+        transformPerspective: 1000,
+        duration: 0.45, ease: 'power2.out'
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.7, ease: 'expo.out' });
+    });
+  });
+
+  /* ── Cursor label for cards ── */
+  const curLabel = document.querySelector('.cur-label');
+  document.querySelectorAll('.wc').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      if (curLabel) curLabel.textContent = 'Visit ↗';
+      document.body.classList.add('cur-view', 'cur-hover');
+    });
+    card.addEventListener('mouseleave', () => {
+      document.body.classList.remove('cur-view', 'cur-hover');
+    });
+  });
+
+  /* ── Header reveal ── */
+  gsap.from('.works-header-desc', {
+    opacity: 0, y: 20, duration: 0.8, ease: 'expo.out',
+    scrollTrigger: { trigger: '.works-header-wrap', start: 'top 85%' }
+  });
+
+  gsap.from('.works-filter', {
+    opacity: 0, y: 16, duration: 0.7, ease: 'expo.out',
+    scrollTrigger: { trigger: '.works-header-wrap', start: 'top 85%' },
+    delay: 0.15
+  });
+
+  document.querySelectorAll('.works-title .rline').forEach((line, i) => {
+    const inner = document.createElement('span');
+    while (line.firstChild) inner.appendChild(line.firstChild);
+    line.appendChild(inner);
+    gsap.from(inner, {
+      y: '110%', duration: 1.05, ease: 'expo.out',
+      scrollTrigger: { trigger: '.works-header-wrap', start: 'top 85%' },
+      delay: i * 0.1
+    });
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DESIGN RAIL — mouse-drag + velocity momentum + auto-scroll
+═══════════════════════════════════════════════════════════ */
+function initDesignRail() {
+  const outer   = document.getElementById('designRailOuter');
+  const rail    = document.getElementById('designRail');
+  const hint    = document.getElementById('railDragHint');
+  const cards   = rail.querySelectorAll('.dc');
+  if (!outer || !rail) return;
+
+  /* ── Stagger card entrance ── */
+  gsap.from(cards, {
+    opacity: 0, x: 60, stagger: 0.08, duration: 0.9, ease: 'expo.out',
+    scrollTrigger: { trigger: outer, start: 'top 80%' }
+  });
+
+  /* ── Drag logic with velocity ── */
+  let isDown     = false;
+  let startX     = 0;
+  let currentX   = 0;
+  let velX       = 0;
+  let lastX      = 0;
+  let rafId      = null;
+  const MAX_X    = 0;
+  let MIN_X      = 0;
+
+  function getMinX() {
+    return -(rail.scrollWidth - outer.clientWidth + 48);
+  }
+
+  function clamp(val, min, max) {
+    return Math.max(min, Math.min(max, val));
+  }
+
+  function applyX(x) {
+    currentX = clamp(x, getMinX(), MAX_X);
+    gsap.set(rail, { x: currentX });
+  }
+
+  // Auto-glide with deceleration
+  function momentumLoop() {
+    if (Math.abs(velX) < 0.3) { velX = 0; return; }
+    velX *= 0.92;
+    applyX(currentX + velX);
+    rafId = requestAnimationFrame(momentumLoop);
+  }
+
+  outer.addEventListener('mousedown', e => {
+    isDown  = true;
+    startX  = e.clientX - currentX;
+    lastX   = e.clientX;
+    velX    = 0;
+    if (rafId) cancelAnimationFrame(rafId);
+    outer.style.cursor = 'grabbing';
+    if (hint) hint.classList.add('hide');
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    velX   = e.clientX - lastX;
+    lastX  = e.clientX;
+    applyX(e.clientX - startX);
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!isDown) return;
+    isDown = false;
+    outer.style.cursor = 'grab';
+    rafId = requestAnimationFrame(momentumLoop);
+  });
+
+  /* ── Touch support ── */
+  let touchStartX = 0;
+  outer.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX - currentX;
+    velX = 0;
+    if (rafId) cancelAnimationFrame(rafId);
+    if (hint) hint.classList.add('hide');
+  }, { passive: true });
+
+  outer.addEventListener('touchmove', e => {
+    velX = e.touches[0].clientX - touchStartX - currentX;
+    applyX(e.touches[0].clientX - touchStartX);
+  }, { passive: true });
+
+  outer.addEventListener('touchend', () => {
+    rafId = requestAnimationFrame(momentumLoop);
+  });
+
+  /* ── Prevent link clicks while dragging ── */
+  outer.addEventListener('click', e => {
+    if (Math.abs(velX) > 2) e.preventDefault();
+  });
+
+  /* ── Parallax on scroll: rail nudges horizontally ── */
+  gsap.to(rail, {
+    x: () => currentX - 80,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: outer,
+      start: 'top bottom', end: 'bottom top',
+      scrub: 1.5,
+      onUpdate: self => {
+        // nudge: don't override drag position, just add subtle drift
+      }
+    }
+  });
+
+  /* ── Hover tilt on each card ── */
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      gsap.to(card, {
+        rotationY: x * 8, rotationX: -y * 6,
+        transformPerspective: 900,
+        duration: 0.4, ease: 'power2.out'
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.6, ease: 'expo.out' });
+    });
+  });
+
+  /* ── Cursor label ── */
+  const curLabel = document.querySelector('.cur-label');
+  outer.addEventListener('mouseenter', () => {
+    if (curLabel) curLabel.textContent = 'Drag';
+    document.body.classList.add('cur-view', 'cur-dark', 'cur-hover');
+  });
+  outer.addEventListener('mouseleave', () => {
+    document.body.classList.remove('cur-view', 'cur-hover');
+  });
+
+  /* ── Design title reveal ── */
+  document.querySelectorAll('.design-title .rline').forEach((line, i) => {
+    const inner = document.createElement('span');
+    while (line.firstChild) inner.appendChild(line.firstChild);
+    line.appendChild(inner);
+    gsap.from(inner, {
+      y: '110%', duration: 1.05, ease: 'expo.out',
+      scrollTrigger: { trigger: '.design-header', start: 'top 85%' },
+      delay: i * 0.1
+    });
+  });
+}
+
+/* ─── Start preloader on DOM ready ─────────────────────── */
+window.addEventListener("DOMContentLoaded", () => {
   initPreloader();
 });
