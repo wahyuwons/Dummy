@@ -1,87 +1,701 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WW INTERIOR | Kesempurnaan Ruang</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Creative Designer & Web Developer</title>
+  <meta name="description" content="Creative designer and web developer crafting digital experiences that convert and captivate." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <div class="cursor"></div>
 
-    <div class="preloader">
-        <h1 class="counter">0%</h1>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PRELOADER                                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <span class="pl-first">YOUR</span>
+        <span class="pl-last">NAME</span>
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <div class="preloader-count"><span id="count-num">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CUSTOM CURSOR                              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NAVIGATION                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-first">YOUR</span>
+        <span class="logo-last">NAME</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#works" class="nav-link">Works</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">
+        <span>Contact Me</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-burger" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <ul>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#works" class="mobile-link">Works</a></li>
+        <li><a href="#services" class="mobile-link">Services</a></li>
+        <li><a href="#contact" class="mobile-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO                                        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-media">
+      <video autoplay muted loop playsinline class="hero-video" id="heroVideo">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-developer-working-on-code-in-a-large-screen-monitor-34977-large.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
     </div>
 
-    <main id="smooth-wrapper">
-        <div id="smooth-content">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Creative Portfolio — 2025</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-line"><em>Crafting</em></span>
+        <span class="hero-line">Digital</span>
+        <span class="hero-line">Experiences.</span>
+      </h1>
+      <div class="hero-sub">
+        <p>UI/UX Design & Web Development that turns ideas into compelling digital products.</p>
+        <a href="#works" class="hero-cta">
+          <span>Explore Work</span>
+          <span class="cta-arrow">↓</span>
+        </a>
+      </div>
+    </div>
 
-            <section class="hero">
-                <div class="hero-text-container">
-                    <h1 class="hero-title" id="title-w1">WW</h1>
-                    <h1 class="hero-title" id="title-w2">INTERIOR</h1>
-                </div>
-                <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000" class="hero-img" alt="WW Interior Main">
-                </div>
-                <div class="scroll-down">GULIR KE BAWAH</div>
-            </section>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
-            <section class="intro-section">
-                <div class="intro-text">
-                    <p class="stooff-reveal">KAMI BUKAN HANYA MERANCANG RUANG. KAMI MENCIPTAKAN PENGALAMAN VISUAL YANG PRESISI, MENGGABUNGKAN ESTETIKA GELAP DENGAN FUNGSIONALITAS STRUKTURAL TANPA KOMPROMI.</p>
-                </div>
-            </section>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- WORKS LIST                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="works" class="works-section">
+    <div class="works-header container">
+      <p class="section-eyebrow">Selected Work</p>
+      <div class="works-header-count"><span id="works-total">09</span></div>
+    </div>
 
-            <section class="gallery-section">
-                <div class="gallery-header">
-                    <h2>PROYEK TERPILIH</h2>
-                    <p>Mahakarya Residensial & Komersial</p>
-                </div>
-                
-                <div class="gallery-grid">
-                    <div class="gallery-item item-left">
-                        <div class="img-mask">
-                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Kamar-1.png" alt="Kamar 1">
-                        </div>
-                        <h3>Ruang Tidur Utama</h3>
-                        <p>Simetri & Keteduhan</p>
-                    </div>
+    <ul class="works-list" id="worksList">
 
-                    <div class="gallery-item item-right" data-speed="1.2">
-                        <div class="img-mask">
-                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-9.png" alt="Rumah 9">
-                        </div>
-                        <h3>Ruang Keluarga</h3>
-                        <p>Konsep Terbuka Modern</p>
-                    </div>
-
-                    <div class="gallery-item item-center">
-                        <div class="img-mask">
-                            <img src="https://team5-1.deskteam360.com/wp-content/uploads/2026/04/Rumah-8.png" alt="Rumah 8">
-                        </div>
-                        <h3>Fasad Eksterior</h3>
-                        <p>Industrial Geometris</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="footer">
-                <h1 class="massive-text">MARI BERDISKUSI.</h1>
-                <div class="footer-links">
-                    <a href="#">INSTAGRAM</a>
-                    <a href="#">EMAIL</a>
-                    <a href="#">WHATSAPP</a>
-                </div>
-                <p class="copyright">© 2026 WW INTERIOR. Hak Cipta Dilindungi.</p>
-            </section>
-
+      <li class="work-item" data-index="01">
+        <a href="https://example-project1.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">01</div>
+          <div class="work-info">
+            <h3 class="work-title">Landing Page E-Commerce</h3>
+            <span class="work-location">UI/UX Design · React</span>
+          </div>
+          <div class="work-tags">
+            <span>Web Design</span>
+            <span>E-Commerce</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="E-Commerce Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="E-Commerce Preview" />
         </div>
-    </main>
+      </li>
 
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+      <li class="work-item" data-index="02">
+        <a href="https://example-project2.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">02</div>
+          <div class="work-info">
+            <h3 class="work-title">Company Profile — SaaS</h3>
+            <span class="work-location">Branding · Next.js</span>
+          </div>
+          <div class="work-tags">
+            <span>Branding</span>
+            <span>Web Dev</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SaaS Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="SaaS Preview" />
+        </div>
+      </li>
+
+      <li class="work-item" data-index="03">
+        <a href="https://example-project3.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">03</div>
+          <div class="work-info">
+            <h3 class="work-title">Restaurant Brand & Website</h3>
+            <span class="work-location">Hospitality · GSAP</span>
+          </div>
+          <div class="work-tags">
+            <span>Hospitality</span>
+            <span>Animation</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Restaurant Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Restaurant Preview" />
+        </div>
+      </li>
+
+      <li class="work-item" data-index="04">
+        <a href="https://example-project4.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">04</div>
+          <div class="work-info">
+            <h3 class="work-title">Dashboard Analytics App</h3>
+            <span class="work-location">UI Design · React + D3</span>
+          </div>
+          <div class="work-tags">
+            <span>Dashboard</span>
+            <span>Data Viz</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboard Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Dashboard Preview" />
+        </div>
+      </li>
+
+      <li class="work-item" data-index="05">
+        <a href="https://example-project5.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">05</div>
+          <div class="work-info">
+            <h3 class="work-title">Fashion Brand Identity</h3>
+            <span class="work-location">Branding · Webflow</span>
+          </div>
+          <div class="work-tags">
+            <span>Fashion</span>
+            <span>Branding</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80" alt="Fashion Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80" alt="Fashion Preview" />
+        </div>
+      </li>
+
+      <li class="work-item" data-index="06">
+        <a href="https://example-project6.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">06</div>
+          <div class="work-info">
+            <h3 class="work-title">Real Estate Platform</h3>
+            <span class="work-location">PropTech · Vue.js</span>
+          </div>
+          <div class="work-tags">
+            <span>Real Estate</span>
+            <span>Platform</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Real Estate Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Real Estate Preview" />
+        </div>
+      </li>
+
+      <li class="work-item" data-index="07">
+        <a href="https://example-project7.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">07</div>
+          <div class="work-info">
+            <h3 class="work-title">Mobile App UI — FinTech</h3>
+            <span class="work-location">Mobile UX · Figma</span>
+          </div>
+          <div class="work-tags">
+            <span>FinTech</span>
+            <span>Mobile UI</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80" alt="FinTech Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="FinTech Preview" />
+        </div>
+      </li>
+
+      <li class="work-item" data-index="08">
+        <a href="https://example-project8.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">08</div>
+          <div class="work-info">
+            <h3 class="work-title">Creative Agency Website</h3>
+            <span class="work-location">Agency · GSAP + Three.js</span>
+          </div>
+          <div class="work-tags">
+            <span>Agency</span>
+            <span>3D Web</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="Agency Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80" alt="Agency Preview" />
+        </div>
+      </li>
+
+      <li class="work-item" data-index="09">
+        <a href="https://example-project9.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
+          <div class="work-num">09</div>
+          <div class="work-info">
+            <h3 class="work-title">Portfolio — Photography</h3>
+            <span class="work-location">Photography · Astro</span>
+          </div>
+          <div class="work-tags">
+            <span>Photography</span>
+            <span>Portfolio</span>
+          </div>
+          <div class="work-thumb">
+            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80" alt="Photography Project" />
+          </div>
+          <div class="work-arrow">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+        <div class="work-preview-img">
+          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&q=80" alt="Photography Preview" />
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- MARQUEE STRIP                              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="marquee-strip">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="marquee-inner">
+        <span>UI/UX Design</span>
+        <span class="marquee-dot">✦</span>
+        <span>Web Development</span>
+        <span class="marquee-dot">✦</span>
+        <span>Branding</span>
+        <span class="marquee-dot">✦</span>
+        <span>Motion Design</span>
+        <span class="marquee-dot">✦</span>
+        <span>React & Next.js</span>
+        <span class="marquee-dot">✦</span>
+        <span>GSAP Animation</span>
+        <span class="marquee-dot">✦</span>
+        <span>Figma & Prototyping</span>
+        <span class="marquee-dot">✦</span>
+        <span>Mobile UX</span>
+        <span class="marquee-dot">✦</span>
+      </div>
+      <div class="marquee-inner" aria-hidden="true">
+        <span>UI/UX Design</span>
+        <span class="marquee-dot">✦</span>
+        <span>Web Development</span>
+        <span class="marquee-dot">✦</span>
+        <span>Branding</span>
+        <span class="marquee-dot">✦</span>
+        <span>Motion Design</span>
+        <span class="marquee-dot">✦</span>
+        <span>React & Next.js</span>
+        <span class="marquee-dot">✦</span>
+        <span>GSAP Animation</span>
+        <span class="marquee-dot">✦</span>
+        <span>Figma & Prototyping</span>
+        <span class="marquee-dot">✦</span>
+        <span>Mobile UX</span>
+        <span class="marquee-dot">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- STATS                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="stats" class="stats-section">
+    <div class="stats-text container">
+      <h2 class="stats-headline">
+        <span class="reveal-line">We Turn Ideas</span>
+        <span class="reveal-line"><em>Into Authority.</em></span>
+      </h2>
+      <p class="stats-body reveal-up">Creative and technical execution for startups, brands, and businesses that need more than just a designer — they need a partner who can build and ship.</p>
+    </div>
+
+    <div class="stats-grid container">
+      <div class="stat-card">
+        <div class="stat-num">
+          <span class="count" data-target="40">0</span>+
+        </div>
+        <p class="stat-label">Projects Completed</p>
+        <span class="stat-desc">Delivered across industries — from startup MVPs to enterprise redesigns, each shipped on time and on brief.</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">
+          <span class="count" data-target="15">0</span>+
+        </div>
+        <p class="stat-label">Happy Clients</p>
+        <span class="stat-desc">Long-term partnerships built on trust, transparency, and results that speak louder than deliverables.</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">
+          <span class="count" data-target="5">0</span>+
+        </div>
+        <p class="stat-label">Years of Experience</p>
+        <span class="stat-desc">Half a decade of pixels, code, and strategy — always keeping up with what's next.</span>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">
+          <span class="count" data-target="8">0</span>
+        </div>
+        <p class="stat-label">Industries Covered</p>
+        <span class="stat-desc">E-Commerce, FinTech, Hospitality, Real Estate, Healthcare, Fashion, SaaS, and Media.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SERVICES — UI/UX (Horizontal Scroll)       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="services" class="services-section">
+    <div class="services-intro container">
+      <div class="services-intro-left">
+        <p class="section-eyebrow">UI/UX & Branding</p>
+        <h2 class="services-title reveal-line-wrap">
+          <span class="reveal-line">Designs People</span>
+          <span class="reveal-line"><em>Come Back To.</em></span>
+        </h2>
+      </div>
+      <div class="services-intro-right">
+        <p class="reveal-up">Interfaces and identities crafted for brands that demand attention. From pixel-perfect UI to full brand systems — designed to perform and built to last.</p>
+        <a href="#works" class="text-link reveal-up">
+          Explore The Work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Horizontal Scroll Track -->
+    <div class="h-scroll-outer" id="hScrollOuter">
+      <div class="h-scroll-track" id="hScrollTrack">
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80" alt="UI Design" />
+          </div>
+          <div class="h-panel-label">UI System Design</div>
+        </div>
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=900&q=80" alt="Brand Design" />
+          </div>
+          <div class="h-panel-label">Brand Identity</div>
+        </div>
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=900&q=80" alt="Prototyping" />
+          </div>
+          <div class="h-panel-label">Prototype & Flow</div>
+        </div>
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=80" alt="Motion Design" />
+          </div>
+          <div class="h-panel-label">Motion & Interaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SERVICES — WEB DEV (Horizontal Scroll)     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="services-section services-section--dark">
+    <div class="services-intro container">
+      <div class="services-intro-left">
+        <p class="section-eyebrow">Web Development</p>
+        <h2 class="services-title reveal-line-wrap">
+          <span class="reveal-line">Code That</span>
+          <span class="reveal-line"><em>Performs.</em></span>
+        </h2>
+      </div>
+      <div class="services-intro-right">
+        <p class="reveal-up">Frontend and full-stack development with modern technologies. Fast, accessible, SEO-optimised sites and applications — built to scale without the bloat.</p>
+        <a href="#works" class="text-link reveal-up">
+          Explore The Work
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="h-scroll-outer" id="hScrollOuter2">
+      <div class="h-scroll-track" id="hScrollTrack2">
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80" alt="Frontend Dev" />
+          </div>
+          <div class="h-panel-label">React & Next.js</div>
+        </div>
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80" alt="Backend Dev" />
+          </div>
+          <div class="h-panel-label">API & Backend</div>
+        </div>
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80" alt="Mobile Dev" />
+          </div>
+          <div class="h-panel-label">Mobile-First</div>
+        </div>
+        <div class="h-scroll-panel">
+          <div class="h-panel-img">
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=900&q=80" alt="Performance" />
+          </div>
+          <div class="h-panel-label">Performance & SEO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ABOUT                                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="about" class="about-section">
+    <div class="about-inner container">
+      <div class="about-text">
+        <p class="section-eyebrow">The Studio Behind the Work.</p>
+        <h2 class="about-headline reveal-line-wrap">
+          <span class="reveal-line">Based in Indonesia,</span>
+          <span class="reveal-line"><em>Built for the World.</em></span>
+        </h2>
+        <p class="about-body reveal-up">
+          Freelance creative based in Surabaya — designing and building digital products since 2019. 
+          Specialising in UI/UX design, frontend development, and brand identity for clients across Indonesia and Southeast Asia. 
+          Every project gets obsessive attention to detail, pixel-level precision, and a performance-first mindset.
+        </p>
+        <div class="about-links reveal-up">
+          <a href="#contact" class="text-link">Start a Project →</a>
+          <a href="#works" class="text-link">See All Work →</a>
+        </div>
+      </div>
+      <div class="about-portrait">
+        <div class="portrait-wrap">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Your Name — Designer & Developer" />
+          <div class="portrait-badge">
+            <span>Open to Projects</span>
+            <span class="badge-dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TECH STACK / LOGOS MARQUEE                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="logos-strip">
+    <p class="logos-label container">Tools & Technologies</p>
+    <div class="logos-track-wrap">
+      <div class="logos-track" id="logosTrack">
+        <div class="logos-inner">
+          <span class="logo-text">Figma</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">React</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Next.js</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">GSAP</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Tailwind CSS</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Framer Motion</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Webflow</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">TypeScript</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Node.js</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Supabase</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Vercel</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Netlify</span>
+          <span class="logo-sep">·</span>
+        </div>
+        <div class="logos-inner" aria-hidden="true">
+          <span class="logo-text">Figma</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">React</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Next.js</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">GSAP</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Tailwind CSS</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Framer Motion</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Webflow</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">TypeScript</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Node.js</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Supabase</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Vercel</span>
+          <span class="logo-sep">·</span>
+          <span class="logo-text">Netlify</span>
+          <span class="logo-sep">·</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CTA                                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="contact" class="cta-section">
+    <div class="cta-inner container">
+      <p class="section-eyebrow">Start My Project</p>
+      <h2 class="cta-headline reveal-line-wrap">
+        <span class="reveal-line">Let's Build</span>
+        <span class="reveal-line"><em>Something Great.</em></span>
+      </h2>
+      <p class="cta-body reveal-up">Every standout project starts with one conversation. Tell me your vision and I'll help you bring it to life — on time, on brand, and beyond expectations.</p>
+      <div class="cta-actions reveal-up">
+        <a href="mailto:yourname@email.com" class="cta-btn cta-btn--primary">
+          <span>Get In Touch</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://wa.me/6281234567890" target="_blank" class="cta-btn cta-btn--secondary">WhatsApp Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FOOTER                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="footer-inner container">
+      <div class="footer-top">
+        <a href="#" class="footer-logo">
+          <span>YOUR</span><span>NAME</span>
+        </a>
+        <p class="footer-tagline">Surabaya's creative studio for UI/UX design and web development. Crafting digital experiences that convert and captivate.</p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://instagram.com/yourname" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://dribbble.com/yourname" target="_blank" rel="noopener">Dribbble</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:yourname@email.com">yourname@email.com</a></li>
+            <li><a href="https://wa.me/6281234567890">+62 812 3456 7890</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <p>©2025 by YOUR NAME. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SCRIPTS                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>
