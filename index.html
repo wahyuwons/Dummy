@@ -1,701 +1,684 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Creative Designer & Web Developer</title>
-  <meta name="description" content="Creative designer and web developer crafting digital experiences that convert and captivate." />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wahyuwono — Technology Director & AI Leader</title>
+  <meta name="description" content="Technology Director & AI Leader building intelligent digital systems that transform how governments and organizations operate."/>
+  <meta name="keywords" content="Wahyuwono, Technology Director, AI Leader, WordPress Expert, Government Systems, Indonesia"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- PRELOADER                                   -->
-  <!-- ═══════════════════════════════════════════ -->
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">
-        <span class="pl-first">YOUR</span>
-        <span class="pl-last">NAME</span>
-      </div>
-      <div class="preloader-bar-wrap">
-        <div class="preloader-bar"></div>
-      </div>
-      <div class="preloader-count"><span id="count-num">0</span>%</div>
+<!-- ══════════════════════════════════
+     PRELOADER — identical to leftcoast
+══════════════════════════════════ -->
+<div id="preloader">
+  <div class="pre-bg"></div>
+  <div class="pre-content">
+    <svg class="pre-icon" width="140" height="140" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="preGrad" x1="500" y1="0" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#ffffff"/>
+          <stop offset="1" stop-color="rgba(255,255,255,0.4)"/>
+        </linearGradient>
+      </defs>
+      <!-- W shape path -->
+      <path class="pre-path-stroke" d="M45 45 H455 C477 45 499 67 499 89 V200 C499 222 477 244 455 244 H310 L440 374 C452 386 452 406 440 418 L360 498 C348 510 328 510 316 498 L186 368 L186 411 C186 433 164 455 142 455 H45 C23 455 1 433 1 411 V89 C1 67 23 45 45 45Z"
+        fill="none" stroke="url(#preGrad)" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <path class="pre-path-fill" d="M45 45 H455 C477 45 499 67 499 89 V200 C499 222 477 244 455 244 H310 L440 374 C452 386 452 406 440 418 L360 498 C348 510 328 510 316 498 L186 368 L186 411 C186 433 164 455 142 455 H45 C23 455 1 433 1 411 V89 C1 67 23 45 45 45Z"
+        fill="url(#preGrad)" opacity="0"/>
+      <!-- W letter inside -->
+      <text x="250" y="300" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="600" font-size="180" fill="white" opacity="0" class="pre-letter">W</text>
+    </svg>
+    <div class="pre-counter"><span id="preNum">0</span><span class="pre-pct">%</span></div>
+    <div class="pre-bar-wrap"><div class="pre-bar" id="preBar"></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     CUSTOM CURSOR
+══════════════════════════════════ -->
+<div id="cursor">
+  <div class="cur-dot"></div>
+  <div class="cur-ring"></div>
+  <div class="cur-label"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     NAVIGATION
+══════════════════════════════════ -->
+<header id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="nav-logo">
+      <span class="logo-mark">W</span>
+      <span class="logo-dot"></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about" class="nav-link" data-text="About">About</a>
+      <a href="#experience" class="nav-link" data-text="Experience">Experience</a>
+      <a href="#skills" class="nav-link" data-text="Skills">Skills</a>
+      <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+    </nav>
+    <a href="mailto:wahyuwons@gmail.com" class="nav-cta">
+      <span>Hire Me</span>
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </a>
+    <button class="nav-burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-progress-bar" id="navProgress"></div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-menu-inner">
+    <a href="#about" class="mob-link">About</a>
+    <a href="#experience" class="mob-link">Experience</a>
+    <a href="#skills" class="mob-link">Skills</a>
+    <a href="#contact" class="mob-link">Contact</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════
+     HERO — fullscreen video/gradient
+══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-noise"></div>
+    <div class="hero-gradient"></div>
+    <!-- Floating orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-pulse"></span>
+      <span>Open to Strategic Partnerships</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="ht-line">Technology</span>
+      <span class="ht-line italic-line"><em>Director</em></span>
+      <span class="ht-line">&amp; AI Leader</span>
+    </h1>
+
+    <p class="hero-sub">Building intelligent digital systems that transform how governments and organizations operate — from large-scale CMS ecosystems to AI-powered workflow automation across Indonesia and the United States.</p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Let's Connect</a>
+      <a href="#experience" class="btn-ghost">View Work ↓</a>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- CUSTOM CURSOR                              -->
-  <!-- ═══════════════════════════════════════════ -->
-  <div id="cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-circle"></div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- NAVIGATION                                 -->
-  <!-- ═══════════════════════════════════════════ -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-first">YOUR</span>
-        <span class="logo-last">NAME</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#works" class="nav-link">Works</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-      </ul>
-      <a href="#contact" class="nav-cta">
-        <span>Contact Me</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <button class="nav-burger" id="menuToggle" aria-label="Toggle menu">
-        <span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <ul>
-        <li><a href="#about" class="mobile-link">About</a></li>
-        <li><a href="#works" class="mobile-link">Works</a></li>
-        <li><a href="#services" class="mobile-link">Services</a></li>
-        <li><a href="#contact" class="mobile-link">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- HERO                                        -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-media">
-      <video autoplay muted loop playsinline class="hero-video" id="heroVideo">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-developer-working-on-code-in-a-large-screen-monitor-34977-large.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-overlay"></div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="eyebrow-line"></span>
-        <span class="eyebrow-text">Creative Portfolio — 2025</span>
+  <!-- Slide deck — current roles (bottom right like leftcoast) -->
+  <div class="hero-slides-wrap">
+    <div class="slide-counter">
+      <span>01</span>
+      <div class="slide-track-bar">
+        <div class="slide-progress" id="slideProgress"></div>
       </div>
-      <h1 class="hero-title">
-        <span class="hero-line"><em>Crafting</em></span>
-        <span class="hero-line">Digital</span>
-        <span class="hero-line">Experiences.</span>
-      </h1>
-      <div class="hero-sub">
-        <p>UI/UX Design & Web Development that turns ideas into compelling digital products.</p>
-        <a href="#works" class="hero-cta">
-          <span>Explore Work</span>
-          <span class="cta-arrow">↓</span>
-        </a>
+      <span>02</span>
+    </div>
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active-slide">
+        <div class="slide-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        </div>
+        <div class="slide-text">
+          <strong>Director</strong>
+          <span>PT Teknologi Indonesia Mandiri</span>
+        </div>
       </div>
-    </div>
-
-    <div class="hero-scroll-indicator">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- WORKS LIST                                  -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section id="works" class="works-section">
-    <div class="works-header container">
-      <p class="section-eyebrow">Selected Work</p>
-      <div class="works-header-count"><span id="works-total">09</span></div>
-    </div>
-
-    <ul class="works-list" id="worksList">
-
-      <li class="work-item" data-index="01">
-        <a href="https://example-project1.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">01</div>
-          <div class="work-info">
-            <h3 class="work-title">Landing Page E-Commerce</h3>
-            <span class="work-location">UI/UX Design · React</span>
-          </div>
-          <div class="work-tags">
-            <span>Web Design</span>
-            <span>E-Commerce</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="E-Commerce Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="E-Commerce Preview" />
+      <div class="hero-slide">
+        <div class="slide-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
-      </li>
-
-      <li class="work-item" data-index="02">
-        <a href="https://example-project2.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">02</div>
-          <div class="work-info">
-            <h3 class="work-title">Company Profile — SaaS</h3>
-            <span class="work-location">Branding · Next.js</span>
-          </div>
-          <div class="work-tags">
-            <span>Branding</span>
-            <span>Web Dev</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SaaS Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="SaaS Preview" />
+        <div class="slide-text">
+          <strong>Team Leader &amp; AI Researcher</strong>
+          <span>Deskteam360 · Arizona, USA</span>
         </div>
-      </li>
-
-      <li class="work-item" data-index="03">
-        <a href="https://example-project3.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">03</div>
-          <div class="work-info">
-            <h3 class="work-title">Restaurant Brand & Website</h3>
-            <span class="work-location">Hospitality · GSAP</span>
-          </div>
-          <div class="work-tags">
-            <span>Hospitality</span>
-            <span>Animation</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Restaurant Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Restaurant Preview" />
-        </div>
-      </li>
-
-      <li class="work-item" data-index="04">
-        <a href="https://example-project4.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">04</div>
-          <div class="work-info">
-            <h3 class="work-title">Dashboard Analytics App</h3>
-            <span class="work-location">UI Design · React + D3</span>
-          </div>
-          <div class="work-tags">
-            <span>Dashboard</span>
-            <span>Data Viz</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboard Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Dashboard Preview" />
-        </div>
-      </li>
-
-      <li class="work-item" data-index="05">
-        <a href="https://example-project5.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">05</div>
-          <div class="work-info">
-            <h3 class="work-title">Fashion Brand Identity</h3>
-            <span class="work-location">Branding · Webflow</span>
-          </div>
-          <div class="work-tags">
-            <span>Fashion</span>
-            <span>Branding</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80" alt="Fashion Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80" alt="Fashion Preview" />
-        </div>
-      </li>
-
-      <li class="work-item" data-index="06">
-        <a href="https://example-project6.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">06</div>
-          <div class="work-info">
-            <h3 class="work-title">Real Estate Platform</h3>
-            <span class="work-location">PropTech · Vue.js</span>
-          </div>
-          <div class="work-tags">
-            <span>Real Estate</span>
-            <span>Platform</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Real Estate Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Real Estate Preview" />
-        </div>
-      </li>
-
-      <li class="work-item" data-index="07">
-        <a href="https://example-project7.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">07</div>
-          <div class="work-info">
-            <h3 class="work-title">Mobile App UI — FinTech</h3>
-            <span class="work-location">Mobile UX · Figma</span>
-          </div>
-          <div class="work-tags">
-            <span>FinTech</span>
-            <span>Mobile UI</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80" alt="FinTech Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="FinTech Preview" />
-        </div>
-      </li>
-
-      <li class="work-item" data-index="08">
-        <a href="https://example-project8.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">08</div>
-          <div class="work-info">
-            <h3 class="work-title">Creative Agency Website</h3>
-            <span class="work-location">Agency · GSAP + Three.js</span>
-          </div>
-          <div class="work-tags">
-            <span>Agency</span>
-            <span>3D Web</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="Agency Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80" alt="Agency Preview" />
-        </div>
-      </li>
-
-      <li class="work-item" data-index="09">
-        <a href="https://example-project9.netlify.app" target="_blank" rel="noopener" class="work-item-inner">
-          <div class="work-num">09</div>
-          <div class="work-info">
-            <h3 class="work-title">Portfolio — Photography</h3>
-            <span class="work-location">Photography · Astro</span>
-          </div>
-          <div class="work-tags">
-            <span>Photography</span>
-            <span>Portfolio</span>
-          </div>
-          <div class="work-thumb">
-            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80" alt="Photography Project" />
-          </div>
-          <div class="work-arrow">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 17L17 3M17 3H7M17 3V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </a>
-        <div class="work-preview-img">
-          <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&q=80" alt="Photography Preview" />
-        </div>
-      </li>
-
-    </ul>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- MARQUEE STRIP                              -->
-  <!-- ═══════════════════════════════════════════ -->
-  <div class="marquee-strip">
-    <div class="marquee-track" id="marqueeTrack">
-      <div class="marquee-inner">
-        <span>UI/UX Design</span>
-        <span class="marquee-dot">✦</span>
-        <span>Web Development</span>
-        <span class="marquee-dot">✦</span>
-        <span>Branding</span>
-        <span class="marquee-dot">✦</span>
-        <span>Motion Design</span>
-        <span class="marquee-dot">✦</span>
-        <span>React & Next.js</span>
-        <span class="marquee-dot">✦</span>
-        <span>GSAP Animation</span>
-        <span class="marquee-dot">✦</span>
-        <span>Figma & Prototyping</span>
-        <span class="marquee-dot">✦</span>
-        <span>Mobile UX</span>
-        <span class="marquee-dot">✦</span>
-      </div>
-      <div class="marquee-inner" aria-hidden="true">
-        <span>UI/UX Design</span>
-        <span class="marquee-dot">✦</span>
-        <span>Web Development</span>
-        <span class="marquee-dot">✦</span>
-        <span>Branding</span>
-        <span class="marquee-dot">✦</span>
-        <span>Motion Design</span>
-        <span class="marquee-dot">✦</span>
-        <span>React & Next.js</span>
-        <span class="marquee-dot">✦</span>
-        <span>GSAP Animation</span>
-        <span class="marquee-dot">✦</span>
-        <span>Figma & Prototyping</span>
-        <span class="marquee-dot">✦</span>
-        <span>Mobile UX</span>
-        <span class="marquee-dot">✦</span>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- STATS                                      -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section id="stats" class="stats-section">
-    <div class="stats-text container">
-      <h2 class="stats-headline">
-        <span class="reveal-line">We Turn Ideas</span>
-        <span class="reveal-line"><em>Into Authority.</em></span>
+  <div class="hero-scroll">
+    <div class="scroll-line-anim"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     MARQUEE STRIP — skills
+══════════════════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-row">
+      <span>WordPress Expert</span><span class="mx-dot">✦</span>
+      <span>AI Implementation</span><span class="mx-dot">✦</span>
+      <span>Government Systems</span><span class="mx-dot">✦</span>
+      <span>Duda Certified</span><span class="mx-dot">✦</span>
+      <span>Team Leadership</span><span class="mx-dot">✦</span>
+      <span>CRM Integration</span><span class="mx-dot">✦</span>
+      <span>ERP Development</span><span class="mx-dot">✦</span>
+      <span>UI/UX Design</span><span class="mx-dot">✦</span>
+      <span>QA Automation</span><span class="mx-dot">✦</span>
+    </div>
+    <div class="marquee-row" aria-hidden="true">
+      <span>WordPress Expert</span><span class="mx-dot">✦</span>
+      <span>AI Implementation</span><span class="mx-dot">✦</span>
+      <span>Government Systems</span><span class="mx-dot">✦</span>
+      <span>Duda Certified</span><span class="mx-dot">✦</span>
+      <span>Team Leadership</span><span class="mx-dot">✦</span>
+      <span>CRM Integration</span><span class="mx-dot">✦</span>
+      <span>ERP Development</span><span class="mx-dot">✦</span>
+      <span>UI/UX Design</span><span class="mx-dot">✦</span>
+      <span>QA Automation</span><span class="mx-dot">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STATS GRID — flip cards (leftcoast style)
+══════════════════════════════════ -->
+<section id="stats" class="stats-section">
+  <div class="container">
+    <div class="stats-header">
+      <h2 class="section-title">
+        <span class="st-line">We Turn Ideas</span>
+        <span class="st-line"><em>Into Impact.</em></span>
       </h2>
-      <p class="stats-body reveal-up">Creative and technical execution for startups, brands, and businesses that need more than just a designer — they need a partner who can build and ship.</p>
+      <p class="section-desc reveal-up">Technology leadership and AI-driven solutions for governments and organizations that need more than just a developer — they need a strategic partner who ships results.</p>
     </div>
 
-    <div class="stats-grid container">
-      <div class="stat-card">
-        <div class="stat-num">
-          <span class="count" data-target="40">0</span>+
-        </div>
-        <p class="stat-label">Projects Completed</p>
-        <span class="stat-desc">Delivered across industries — from startup MVPs to enterprise redesigns, each shipped on time and on brief.</span>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">
-          <span class="count" data-target="15">0</span>+
-        </div>
-        <p class="stat-label">Happy Clients</p>
-        <span class="stat-desc">Long-term partnerships built on trust, transparency, and results that speak louder than deliverables.</span>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">
-          <span class="count" data-target="5">0</span>+
-        </div>
-        <p class="stat-label">Years of Experience</p>
-        <span class="stat-desc">Half a decade of pixels, code, and strategy — always keeping up with what's next.</span>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">
-          <span class="count" data-target="8">0</span>
-        </div>
-        <p class="stat-label">Industries Covered</p>
-        <span class="stat-desc">E-Commerce, FinTech, Hospitality, Real Estate, Healthcare, Fashion, SaaS, and Media.</span>
-      </div>
-    </div>
-  </section>
+    <div class="flip-grid">
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- SERVICES — UI/UX (Horizontal Scroll)       -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section id="services" class="services-section">
-    <div class="services-intro container">
-      <div class="services-intro-left">
-        <p class="section-eyebrow">UI/UX & Branding</p>
-        <h2 class="services-title reveal-line-wrap">
-          <span class="reveal-line">Designs People</span>
-          <span class="reveal-line"><em>Come Back To.</em></span>
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="4">0</span>+
+              <p>Years of Experience</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+            <p>A results-oriented technology leader with a foundation in Electrical Engineering, driving digital transformation across Indonesia and USA.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="9">0</span>+
+              <p>Team Members Led</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <p>Leading 6 developers + 3 designers across cross-functional, cross-continental teams delivering complex web platforms at speed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="5">0</span>+
+              <p>Gov. Projects Shipped</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <p>Government-scale digital systems — PPDB, Licensing Platforms, CMS ecosystems — deployed for Indonesian city and regency offices.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="8">0</span>+
+              <p>Certifications Earned</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <p>Duda Certified, cPanel Professional, Advanced WordPress, Network Admin (BNSP), and more — always learning, always shipping.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ABOUT — two-col with portrait
+══════════════════════════════════ -->
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text-col">
+        <p class="eyebrow reveal-up">01 — About Me</p>
+        <h2 class="section-title reveal-line-h">
+          <span class="rline">The Studio</span>
+          <span class="rline"><em>Behind the Work.</em></span>
         </h2>
+        <p class="about-body reveal-up">A results-oriented technology leader with over <strong>4 years of experience</strong> in digital transformation. My foundation in <strong>Electrical Engineering</strong> gives me a rigorous, systems-first approach to every problem.</p>
+        <p class="about-body reveal-up">I specialize in <strong>CMS ecosystems</strong>, AI workflow automation, and managing cross-functional teams across continents — from government-scale infrastructure in Indonesia to international agency work in Arizona, USA.</p>
+        <p class="about-body reveal-up">Whether directing the rollout of a city-wide licensing platform or researching AI tools that cut delivery time in half, I build things that <strong>actually move the needle</strong>.</p>
+        <div class="about-actions reveal-up">
+          <a href="#experience" class="text-link">Explore My Experience →</a>
+          <a href="#contact" class="text-link">Get In Touch →</a>
+        </div>
       </div>
-      <div class="services-intro-right">
-        <p class="reveal-up">Interfaces and identities crafted for brands that demand attention. From pixel-perfect UI to full brand systems — designed to perform and built to last.</p>
-        <a href="#works" class="text-link reveal-up">
-          Explore The Work
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
 
-    <!-- Horizontal Scroll Track -->
-    <div class="h-scroll-outer" id="hScrollOuter">
-      <div class="h-scroll-track" id="hScrollTrack">
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80" alt="UI Design" />
+      <div class="about-portrait-col">
+        <div class="portrait-card">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Wahyuwono — Technology Director" class="portrait-img"/>
+          <div class="portrait-overlay">
+            <div class="portrait-info">
+              <span class="portrait-name">Wahyuwono</span>
+              <span class="portrait-role">Technology Director & AI Leader</span>
+            </div>
           </div>
-          <div class="h-panel-label">UI System Design</div>
-        </div>
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=900&q=80" alt="Brand Design" />
+          <div class="portrait-badge-wrap">
+            <div class="avail-badge">
+              <span class="avail-dot"></span>
+              <span>Open to Projects</span>
+            </div>
           </div>
-          <div class="h-panel-label">Brand Identity</div>
-        </div>
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=900&q=80" alt="Prototyping" />
-          </div>
-          <div class="h-panel-label">Prototype & Flow</div>
-        </div>
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=80" alt="Motion Design" />
-          </div>
-          <div class="h-panel-label">Motion & Interaction</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- SERVICES — WEB DEV (Horizontal Scroll)     -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section class="services-section services-section--dark">
-    <div class="services-intro container">
-      <div class="services-intro-left">
-        <p class="section-eyebrow">Web Development</p>
-        <h2 class="services-title reveal-line-wrap">
-          <span class="reveal-line">Code That</span>
-          <span class="reveal-line"><em>Performs.</em></span>
-        </h2>
-      </div>
-      <div class="services-intro-right">
-        <p class="reveal-up">Frontend and full-stack development with modern technologies. Fast, accessible, SEO-optimised sites and applications — built to scale without the bloat.</p>
-        <a href="#works" class="text-link reveal-up">
-          Explore The Work
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="h-scroll-outer" id="hScrollOuter2">
-      <div class="h-scroll-track" id="hScrollTrack2">
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80" alt="Frontend Dev" />
-          </div>
-          <div class="h-panel-label">React & Next.js</div>
-        </div>
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80" alt="Backend Dev" />
-          </div>
-          <div class="h-panel-label">API & Backend</div>
-        </div>
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80" alt="Mobile Dev" />
-          </div>
-          <div class="h-panel-label">Mobile-First</div>
-        </div>
-        <div class="h-scroll-panel">
-          <div class="h-panel-img">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=900&q=80" alt="Performance" />
-          </div>
-          <div class="h-panel-label">Performance & SEO</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- ABOUT                                       -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section id="about" class="about-section">
-    <div class="about-inner container">
-      <div class="about-text">
-        <p class="section-eyebrow">The Studio Behind the Work.</p>
-        <h2 class="about-headline reveal-line-wrap">
-          <span class="reveal-line">Based in Indonesia,</span>
-          <span class="reveal-line"><em>Built for the World.</em></span>
-        </h2>
-        <p class="about-body reveal-up">
-          Freelance creative based in Surabaya — designing and building digital products since 2019. 
-          Specialising in UI/UX design, frontend development, and brand identity for clients across Indonesia and Southeast Asia. 
-          Every project gets obsessive attention to detail, pixel-level precision, and a performance-first mindset.
-        </p>
-        <div class="about-links reveal-up">
-          <a href="#contact" class="text-link">Start a Project →</a>
-          <a href="#works" class="text-link">See All Work →</a>
-        </div>
-      </div>
-      <div class="about-portrait">
-        <div class="portrait-wrap">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Your Name — Designer & Developer" />
-          <div class="portrait-badge">
-            <span>Open to Projects</span>
-            <span class="badge-dot"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- TECH STACK / LOGOS MARQUEE                 -->
-  <!-- ═══════════════════════════════════════════ -->
-  <div class="logos-strip">
-    <p class="logos-label container">Tools & Technologies</p>
-    <div class="logos-track-wrap">
-      <div class="logos-track" id="logosTrack">
-        <div class="logos-inner">
-          <span class="logo-text">Figma</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">React</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Next.js</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">GSAP</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Tailwind CSS</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Framer Motion</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Webflow</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">TypeScript</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Node.js</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Supabase</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Vercel</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Netlify</span>
-          <span class="logo-sep">·</span>
-        </div>
-        <div class="logos-inner" aria-hidden="true">
-          <span class="logo-text">Figma</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">React</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Next.js</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">GSAP</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Tailwind CSS</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Framer Motion</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Webflow</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">TypeScript</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Node.js</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Supabase</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Vercel</span>
-          <span class="logo-sep">·</span>
-          <span class="logo-text">Netlify</span>
-          <span class="logo-sep">·</span>
+          <!-- Floating tags -->
+          <div class="float-tag float-tag-1">AI Leader 🤖</div>
+          <div class="float-tag float-tag-2">Gov. Systems 🏛️</div>
+          <div class="float-tag float-tag-3">Malang, ID 🇮🇩</div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- CTA                                         -->
-  <!-- ═══════════════════════════════════════════ -->
-  <section id="contact" class="cta-section">
-    <div class="cta-inner container">
-      <p class="section-eyebrow">Start My Project</p>
-      <h2 class="cta-headline reveal-line-wrap">
-        <span class="reveal-line">Let's Build</span>
-        <span class="reveal-line"><em>Something Great.</em></span>
+<!-- ══════════════════════════════════
+     EXPERIENCE — out-of-the-box 3D cards
+══════════════════════════════════ -->
+<section id="experience" class="exp-section">
+  <div class="exp-sticky-header">
+    <div class="container">
+      <p class="eyebrow">02 — Experience</p>
+      <h2 class="section-title">
+        <span class="rline">Where I've</span>
+        <span class="rline"><em>Made an Impact.</em></span>
       </h2>
-      <p class="cta-body reveal-up">Every standout project starts with one conversation. Tell me your vision and I'll help you bring it to life — on time, on brand, and beyond expectations.</p>
-      <div class="cta-actions reveal-up">
-        <a href="mailto:yourname@email.com" class="cta-btn cta-btn--primary">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="exp-grid">
+
+      <!-- Card 1 -->
+      <div class="exp-card" data-color="#1a1a2e">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Dec 2025 — Present</div>
+            <div class="exp-badge">Current</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="exp-role">Director</h3>
+          <p class="exp-company">PT Teknologi Indonesia Mandiri</p>
+          <p class="exp-location">📍 Indonesia</p>
+          <p class="exp-desc">Defining the company's strategic vision focused on high-performance government systems. Managing end-to-end business operations from client acquisition to technical roadmaps.</p>
+          <ul class="exp-highlights">
+            <li><strong>PPDB System</strong> — New Student Admission System for the Education Office of Lahat Regency</li>
+            <li><strong>Licensing Platform</strong> — Digital licensing system for the Urban Planning Office of Balikpapan City</li>
+            <li>Leading all business and technical operations end-to-end</li>
+          </ul>
+          <div class="exp-tags">
+            <span>Government Tech</span><span>Strategic Planning</span><span>Client Negotiation</span><span>ERP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="exp-card" data-color="#0f1923">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Dec 2022 — Present · Remote</div>
+            <div class="exp-badge exp-badge-blue">Remote</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3 class="exp-role">Team Leader & AI Researcher</h3>
+          <p class="exp-company">Deskteam360</p>
+          <p class="exp-location">📍 Arizona, United States</p>
+          <p class="exp-desc">Leading a high-performance team of 6 developers and 3 designers. Responsible for delivery quality and workload management across 5+ web platforms.</p>
+          <ul class="exp-highlights">
+            <li>Leading AI research initiatives to automate repetitive tasks — significantly boosting team productivity</li>
+            <li>Multi-platform development: WordPress, Duda, Shopify, Wix, Squarespace</li>
+            <li>Building integrated CRM workflows to enhance UX and operational efficiency</li>
+          </ul>
+          <div class="exp-tags">
+            <span>AI Research</span><span>WordPress</span><span>Duda</span><span>Shopify</span><span>CRM</span><span>Team Leadership</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="exp-card" data-color="#131320">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Jul 2022 — Feb 2023</div>
+            <div class="exp-badge exp-badge-green">Past</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <h3 class="exp-role">QA Engineer & Associate PM</h3>
+          <p class="exp-company">PT Bumi Inovasi Ganapati</p>
+          <p class="exp-location">📍 Surabaya, Indonesia</p>
+          <p class="exp-desc">Dual role in quality assurance and product management for web-based ERP systems, managing a team of 3 engineers.</p>
+          <ul class="exp-highlights">
+            <li>QA automation testing via Selenium IDE with Python, managing 3 engineers' output</li>
+            <li>Writing user stories, PRDs, customer journeys, and benchmark simulations</li>
+            <li>Designing UI/UX mockups and conducting UX research</li>
+          </ul>
+          <div class="exp-tags">
+            <span>Selenium</span><span>Python</span><span>Product Management</span><span>UI/UX</span><span>Figma</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="exp-card" data-color="#0d1b0d">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Sep 2021 — Oct 2021</div>
+            <div class="exp-badge exp-badge-gold">Intern</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="exp-role">Analysis Laboratory Intern</h3>
+          <p class="exp-company">PT PLN (State Electricity Company)</p>
+          <p class="exp-location">📍 Pasuruan, Indonesia</p>
+          <p class="exp-desc">Contributed to measurement systems and data analysis at Indonesia's national electricity company.</p>
+          <ul class="exp-highlights">
+            <li>Developed standard operating procedures for measuring instruments</li>
+            <li>Participated in PHB-TR monitoring tool development and field data collection</li>
+            <li>Assisted the laboratory manager in innovation project data analysis</li>
+          </ul>
+          <div class="exp-tags">
+            <span>Electrical Engineering</span><span>Data Analysis</span><span>SOPs</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     SKILLS — horizontal scroll sections
+══════════════════════════════════ -->
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="skills-header">
+      <p class="eyebrow reveal-up">03 — Core Competencies</p>
+      <h2 class="section-title reveal-line-h">
+        <span class="rline">Built for</span>
+        <span class="rline"><em>Complex Challenges.</em></span>
+      </h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-panel" data-num="01">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Strategic Leadership</h3>
+        <div class="sp-tags">
+          <span>Company Director</span><span>Team Management</span><span>Strategic Planning</span><span>Client Negotiation</span><span>Cross-functional Teams</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>Leadership</span><div class="sp-bar"><div class="sp-fill" data-w="90"></div></div></div>
+          <div class="sp-bar-item"><span>Strategy</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="02">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>AI &amp; Systems</h3>
+        <div class="sp-tags">
+          <span>AI Workflow Automation</span><span>Industrial AI Research</span><span>ERP Development</span><span>Expert Systems</span><span>Process Optimization</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>AI Implementation</span><div class="sp-bar"><div class="sp-fill" data-w="85"></div></div></div>
+          <div class="sp-bar-item"><span>Systems Design</span><div class="sp-bar"><div class="sp-fill" data-w="82"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="03">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Web &amp; CMS Ecosystem</h3>
+        <div class="sp-tags">
+          <span>WordPress Expert</span><span>Duda Certified</span><span>Shopify</span><span>Elementor</span><span>Wix</span><span>Squarespace</span><span>API Integration</span><span>CRM Management</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>WordPress</span><div class="sp-bar"><div class="sp-fill" data-w="95"></div></div></div>
+          <div class="sp-bar-item"><span>Multi-platform</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="04">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Technical Stack</h3>
+        <div class="sp-tags">
+          <span>PHP</span><span>HTML/CSS</span><span>SQL</span><span>Python</span><span>JavaScript</span><span>Selenium IDE</span><span>Figma</span><span>Android/Kotlin</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>Web Development</span><div class="sp-bar"><div class="sp-fill" data-w="80"></div></div></div>
+          <div class="sp-bar-item"><span>QA Automation</span><div class="sp-bar"><div class="sp-fill" data-w="75"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="05">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Product &amp; UX</h3>
+        <div class="sp-tags">
+          <span>PRD Writing</span><span>User Stories</span><span>UX Research</span><span>Prototyping</span><span>Customer Journey</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>UI/UX Design</span><div class="sp-bar"><div class="sp-fill" data-w="72"></div></div></div>
+          <div class="sp-bar-item"><span>Product Management</span><div class="sp-bar"><div class="sp-fill" data-w="78"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     EDUCATION + CERTS — bento grid
+══════════════════════════════════ -->
+<section id="education" class="edu-section">
+  <div class="container">
+    <div class="edu-header">
+      <p class="eyebrow reveal-up">04 — Education &amp; Certifications</p>
+      <h2 class="section-title reveal-line-h">
+        <span class="rline">Academic &amp;</span>
+        <span class="rline"><em>Always Learning.</em></span>
+      </h2>
+    </div>
+
+    <div class="edu-bento">
+
+      <div class="bento-edu bento-large">
+        <div class="bento-icon">🎓</div>
+        <p class="bento-tag">Bachelor's Degree</p>
+        <h3>Electrical Engineering</h3>
+        <p class="bento-school">Universitas Muhammadiyah Malang</p>
+        <p class="bento-period">2018 — 2022</p>
+        <p class="bento-desc">Focus: Network Security, Human-Machine Interface, Mobile Web Development. Final Project: Expert System for Cat Disease Diagnosis using Web-based Case-Based Reasoning.</p>
+        <div class="bento-award">
+          <span>🏆</span>
+          <span>2nd Best Graduate — Electrical Engineering Faculty</span>
+        </div>
+        <div class="bento-gpa">GPA: 3.54 / 4.00</div>
+      </div>
+
+      <div class="certs-grid">
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">Duda Certified Developer</span><span class="cert-issuer">Duda</span></div>
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">cPanel Professional</span><span class="cert-issuer">cPanel</span></div>
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">Advanced WordPress</span><span class="cert-issuer">TemplateMonster</span></div>
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">WordPress Elementor</span><span class="cert-issuer">TemplateMonster</span></div>
+        <div class="cert-item"><span class="cert-year">2022</span><span class="cert-name">Javascript 101</span><span class="cert-issuer">Altera Academy</span></div>
+        <div class="cert-item"><span class="cert-year">2022</span><span class="cert-name">Back End 101</span><span class="cert-issuer">Altera Academy</span></div>
+        <div class="cert-item cert-highlight"><span class="cert-year">2022</span><span class="cert-name">Network Administrator</span><span class="cert-issuer">BNSP National Certification</span></div>
+        <div class="cert-item"><span class="cert-year">2021</span><span class="cert-name">Android Dev with Kotlin</span><span class="cert-issuer">Kampus Merdeka</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CTA — Start My Project (leftcoast style)
+══════════════════════════════════ -->
+<section id="contact" class="cta-section">
+  <div class="container">
+    <div class="cta-card">
+
+      <!-- Floating brand logos -->
+      <div class="cta-float cta-float-1"><span>WordPress</span></div>
+      <div class="cta-float cta-float-2"><span>Duda</span></div>
+      <div class="cta-float cta-float-3"><span>AI</span></div>
+      <div class="cta-float cta-float-4"><span>Gov</span></div>
+      <div class="cta-float cta-float-5"><span>ERP</span></div>
+      <div class="cta-float cta-float-6"><span>CRM</span></div>
+
+      <div class="cta-center">
+        <h2 class="cta-big-title">
+          <span class="cta-line">Have a</span>
+          <span class="cta-line"><em>Project?</em></span>
+        </h2>
+        <p class="cta-sub">Open to strategic partnerships, government digital projects, AI implementation consulting, and international collaborations. Every standout project begins with one conversation.</p>
+        <a href="mailto:wahyuwons@gmail.com" class="cta-main-btn">
           <span>Get In Touch</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </a>
-        <a href="https://wa.me/6281234567890" target="_blank" class="cta-btn cta-btn--secondary">WhatsApp Me</a>
       </div>
+
+      <div class="contact-grid">
+        <a href="mailto:wahyuwons@gmail.com" class="contact-item">
+          <div class="ci-icon">@</div>
+          <div class="ci-text">
+            <span class="ci-label">Email</span>
+            <span class="ci-value">wahyuwons@gmail.com</span>
+          </div>
+        </a>
+        <a href="tel:+6285791567283" class="contact-item">
+          <div class="ci-icon">☎</div>
+          <div class="ci-text">
+            <span class="ci-label">Phone / WhatsApp</span>
+            <span class="ci-value">+62 857 9156 7283</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/wahyu-wono-174033195/" target="_blank" rel="noopener" class="contact-item">
+          <div class="ci-icon">in</div>
+          <div class="ci-text">
+            <span class="ci-label">LinkedIn</span>
+            <span class="ci-value">wahyu-wono-174033195</span>
+          </div>
+        </a>
+        <a href="https://wahyuwons.github.io/" target="_blank" rel="noopener" class="contact-item">
+          <div class="ci-icon">&lt;/&gt;</div>
+          <div class="ci-text">
+            <span class="ci-label">Portfolio / GitHub</span>
+            <span class="ci-value">wahyuwons.github.io</span>
+          </div>
+        </a>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- FOOTER                                      -->
-  <!-- ═══════════════════════════════════════════ -->
-  <footer id="footer">
-    <div class="footer-inner container">
-      <div class="footer-top">
-        <a href="#" class="footer-logo">
-          <span>YOUR</span><span>NAME</span>
-        </a>
-        <p class="footer-tagline">Surabaya's creative studio for UI/UX design and web development. Crafting digital experiences that convert and captivate.</p>
+</main>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">W<span class="footer-logo-dot"></span></a>
+        <p>Malang, West Java, Indonesia · English C1 Advanced</p>
       </div>
-
-      <div class="footer-nav">
+      <div class="footer-nav-cols">
         <div class="footer-col">
           <h4>Studio</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#works">Works</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <ul>
-            <li><a href="https://instagram.com/yourname" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://github.com/yourname" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://dribbble.com/yourname" target="_blank" rel="noopener">Dribbble</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:yourname@email.com">yourname@email.com</a></li>
-            <li><a href="https://wa.me/6281234567890">+62 812 3456 7890</a></li>
-          </ul>
+          <a href="https://www.linkedin.com/in/wahyu-wono-174033195/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://wahyuwons.github.io/" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:wahyuwons@gmail.com">Email</a>
         </div>
       </div>
+      <div class="footer-contact-col">
+        <h4>Contact</h4>
+        <a href="mailto:wahyuwons@gmail.com">wahyuwons@gmail.com</a>
+        <a href="tel:+6285791567283">+62 857 9156 7283</a>
+      </div>
     </div>
-
-    <div class="footer-bottom container">
-      <p>©2025 by YOUR NAME. All rights reserved.</p>
+    <div class="footer-bottom">
+      <p>© 2025 by Wahyuwono. All rights reserved.</p>
       <div class="footer-bottom-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!-- SCRIPTS                                    -->
-  <!-- ═══════════════════════════════════════════ -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script src="script.js"></script>
-
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
