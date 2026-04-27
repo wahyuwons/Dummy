@@ -4,7 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wahyuwono — Technology Director & AI Leader</title>
-  <meta name="description" content="Technology Director & AI Leader. Building intelligent digital systems that transform governments and organizations."/>
+  <meta name="description" content="Technology Director & AI Leader building intelligent digital systems that transform how governments and organizations operate."/>
+  <meta name="keywords" content="Wahyuwono, Technology Director, AI Leader, WordPress Expert, Government Systems, Indonesia"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
@@ -12,605 +13,963 @@
 </head>
 <body>
 
-<!-- ═══════════════════ PRELOADER ═══════════════════ -->
+<!-- ══════════════════════════════════
+     PRELOADER — identical to leftcoast
+══════════════════════════════════ -->
 <div id="preloader">
-  <canvas id="preCanvas"></canvas>
-  <div class="pre-ui">
-    <div class="pre-logo">W</div>
-    <div class="pre-state-wrap">
-      <span id="preState">Initializing</span>
-      <span class="pre-dots"><b>.</b><b>.</b><b>.</b></span>
-    </div>
-    <div class="pre-bar-track"><div class="pre-bar-fill" id="preBar"></div></div>
-    <div class="pre-percent"><span id="preNum">0</span><span>%</span></div>
+  <div class="pre-bg"></div>
+  <div class="pre-content">
+    <svg class="pre-icon" width="140" height="140" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="preGrad" x1="500" y1="0" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#ffffff"/>
+          <stop offset="1" stop-color="rgba(255,255,255,0.4)"/>
+        </linearGradient>
+      </defs>
+      <!-- W shape path -->
+      <path class="pre-path-stroke" d="M45 45 H455 C477 45 499 67 499 89 V200 C499 222 477 244 455 244 H310 L440 374 C452 386 452 406 440 418 L360 498 C348 510 328 510 316 498 L186 368 L186 411 C186 433 164 455 142 455 H45 C23 455 1 433 1 411 V89 C1 67 23 45 45 45Z"
+        fill="none" stroke="url(#preGrad)" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <path class="pre-path-fill" d="M45 45 H455 C477 45 499 67 499 89 V200 C499 222 477 244 455 244 H310 L440 374 C452 386 452 406 440 418 L360 498 C348 510 328 510 316 498 L186 368 L186 411 C186 433 164 455 142 455 H45 C23 455 1 433 1 411 V89 C1 67 23 45 45 45Z"
+        fill="url(#preGrad)" opacity="0"/>
+      <!-- W letter inside -->
+      <text x="250" y="300" text-anchor="middle" font-family="Inter Tight, sans-serif" font-weight="600" font-size="180" fill="white" opacity="0" class="pre-letter">W</text>
+    </svg>
+    <div class="pre-counter"><span id="preNum">0</span><span class="pre-pct">%</span></div>
+    <div class="pre-bar-wrap"><div class="pre-bar" id="preBar"></div></div>
   </div>
-  <div class="pre-flap pre-flap-t"></div>
-  <div class="pre-flap pre-flap-b"></div>
 </div>
 
-<!-- ═══════════════════ CURSOR ═══════════════════ -->
+<!-- ══════════════════════════════════
+     CUSTOM CURSOR
+══════════════════════════════════ -->
 <div id="cursor">
-  <div class="c-dot"></div>
-  <div class="c-ring"></div>
-  <span class="c-txt"></span>
+  <div class="cur-dot"></div>
+  <div class="cur-ring"></div>
+  <div class="cur-label"></div>
 </div>
 
-<!-- ═══════════════════ NAV ═══════════════════ -->
+<!-- ══════════════════════════════════
+     NAVIGATION
+══════════════════════════════════ -->
 <header id="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">W<span class="logo-dot"></span></a>
+  <div class="nav-wrap">
+    <a href="#" class="nav-logo">
+      <span class="logo-mark">W</span>
+      <span class="logo-dot"></span>
+    </a>
     <nav class="nav-links">
-      <a href="#about"      class="nl">About</a>
-      <a href="#works"      class="nl">Works</a>
-      <a href="#design"     class="nl">Design</a>
-      <a href="#experience" class="nl">Experience</a>
-      <a href="#contact"    class="nl">Contact</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#works" class="nav-link">Works</a>
+      <a href="#design" class="nav-link">Design</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
-    <a href="mailto:wahyuwons@gmail.com" class="nav-cta">Hire Me ↗</a>
-    <button class="nav-burger" id="burgerBtn"><span></span><span></span></button>
+    <a href="mailto:wahyuwons@gmail.com" class="nav-cta">
+      <span>Hire Me</span>
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </a>
+    <button class="nav-burger" id="burgerBtn" aria-label="Menu">
+      <span></span><span></span>
+    </button>
   </div>
-  <div class="nav-prog" id="navProg"></div>
+  <div class="nav-progress-bar" id="navProgress"></div>
 </header>
 
+<!-- Mobile Menu -->
 <div class="mob-menu" id="mobMenu">
-  <a href="#about"      class="mob-link">About</a>
-  <a href="#works"      class="mob-link">Works</a>
-  <a href="#design"     class="mob-link">Design</a>
-  <a href="#experience" class="mob-link">Experience</a>
-  <a href="#skills"     class="mob-link">Skills</a>
-  <a href="#contact"    class="mob-link">Contact</a>
+  <div class="mob-menu-inner">
+    <a href="#about" class="mob-link">About</a>
+    <a href="#works" class="mob-link">Works</a>
+    <a href="#design" class="mob-link">Design</a>
+    <a href="#experience" class="mob-link">Experience</a>
+    <a href="#skills" class="mob-link">Skills</a>
+    <a href="#contact" class="mob-link">Contact</a>
+  </div>
 </div>
 
 <main>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
+<!-- ══════════════════════════════════
+     HERO — fullscreen video/gradient
+══════════════════════════════════ -->
 <section id="hero">
-  <!-- Three.js canvas fills full hero bg -->
-  <canvas id="heroCanvas"></canvas>
-  <div class="hero-overlay"></div>
+  <div class="hero-bg">
+    <div class="hero-noise"></div>
+    <div class="hero-gradient"></div>
+    <!-- Floating orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
 
   <div class="hero-content">
-    <div class="hero-badge" id="heroBadge">
-      <span class="hb-pulse"></span>
-      Open to Strategic Partnerships
+    <div class="hero-badge">
+      <span class="badge-pulse"></span>
+      <span>Open to Strategic Partnerships</span>
     </div>
 
-    <h1 class="hero-h1">
-      <span class="hline"><span class="hline-inner">Technology</span></span>
-      <span class="hline hline-em"><span class="hline-inner"><em>Director</em></span></span>
-      <span class="hline"><span class="hline-inner">&amp; AI Leader</span></span>
+    <h1 class="hero-title">
+      <span class="ht-line">Technology</span>
+      <span class="ht-line italic-line"><em>Director</em></span>
+      <span class="ht-line">&amp; AI Leader</span>
     </h1>
 
-    <p class="hero-sub" id="heroSub">
-      Building intelligent digital systems that transform how governments and organizations operate — from large-scale CMS ecosystems to AI-powered workflow automation across Indonesia and the USA.
-    </p>
+    <p class="hero-sub">Building intelligent digital systems that transform how governments and organizations operate — from large-scale CMS ecosystems to AI-powered workflow automation across Indonesia and the United States.</p>
 
-    <div class="hero-btns" id="heroBtns">
-      <a href="#contact" class="btn-solid">Let's Connect</a>
-      <a href="#works"   class="btn-ghost">View Work ↓</a>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Let's Connect</a>
+      <a href="#experience" class="btn-ghost">View Work ↓</a>
     </div>
+  </div>
 
-    <div class="hero-ticker" id="heroTicker">
-      <span class="ht-label">Currently:</span>
-      <div class="ht-track">
-        <span class="ht-item ht-active">Director · PT Teknologi Indonesia Mandiri</span>
-        <span class="ht-item">AI Researcher · Deskteam360 · Arizona, USA</span>
+  <!-- Slide deck — current roles (bottom right like leftcoast) -->
+  <div class="hero-slides-wrap">
+    <div class="slide-counter">
+      <span>01</span>
+      <div class="slide-track-bar">
+        <div class="slide-progress" id="slideProgress"></div>
+      </div>
+      <span>02</span>
+    </div>
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active-slide">
+        <div class="slide-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        </div>
+        <div class="slide-text">
+          <strong>Director</strong>
+          <span>PT Teknologi Indonesia Mandiri</span>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <div class="slide-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="slide-text">
+          <strong>Team Leader &amp; AI Researcher</strong>
+          <span>Deskteam360 · Arizona, USA</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Role cards bottom-right -->
-  <div class="hero-cards" id="heroCards">
-    <div class="hcp">
-      <span class="hcp-n">01</span>
-      <div class="hcp-bar"><div class="hcp-fill" id="hcpFill"></div></div>
-      <span class="hcp-n">02</span>
-    </div>
-    <div class="hc-stack" id="hcStack">
-      <div class="hcard hcard-on">
-        <div class="hcard-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <div><strong>Director</strong><span>PT Teknologi Indonesia Mandiri</span></div>
-      </div>
-      <div class="hcard">
-        <div class="hcard-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <div><strong>AI Researcher</strong><span>Deskteam360 · Arizona, USA</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-scroll" id="heroScroll">
-    <div class="hs-line"></div>
+  <div class="hero-scroll">
+    <div class="scroll-line-anim"></div>
     <span>Scroll</span>
   </div>
 </section>
 
-<!-- ═══════════════════ MARQUEE ═══════════════════ -->
+<!-- ══════════════════════════════════
+     MARQUEE STRIP — skills
+══════════════════════════════════ -->
 <div class="marquee-wrap">
-  <div class="marquee-track" id="mTrack">
-    <div class="mrow">
-      <span>WordPress Expert</span><b>✦</b><span>AI Implementation</span><b>✦</b>
-      <span>Government Systems</span><b>✦</b><span>Duda Certified</span><b>✦</b>
-      <span>Team Leadership</span><b>✦</b><span>CRM Integration</span><b>✦</b>
-      <span>ERP Development</span><b>✦</b><span>QA Automation</span><b>✦</b>
-      <span>UI/UX Design</span><b>✦</b>
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-row">
+      <span>WordPress Expert</span><span class="mx-dot">✦</span>
+      <span>AI Implementation</span><span class="mx-dot">✦</span>
+      <span>Government Systems</span><span class="mx-dot">✦</span>
+      <span>Duda Certified</span><span class="mx-dot">✦</span>
+      <span>Team Leadership</span><span class="mx-dot">✦</span>
+      <span>CRM Integration</span><span class="mx-dot">✦</span>
+      <span>ERP Development</span><span class="mx-dot">✦</span>
+      <span>UI/UX Design</span><span class="mx-dot">✦</span>
+      <span>QA Automation</span><span class="mx-dot">✦</span>
     </div>
-    <div class="mrow" aria-hidden="true">
-      <span>WordPress Expert</span><b>✦</b><span>AI Implementation</span><b>✦</b>
-      <span>Government Systems</span><b>✦</b><span>Duda Certified</span><b>✦</b>
-      <span>Team Leadership</span><b>✦</b><span>CRM Integration</span><b>✦</b>
-      <span>ERP Development</span><b>✦</b><span>QA Automation</span><b>✦</b>
-      <span>UI/UX Design</span><b>✦</b>
+    <div class="marquee-row" aria-hidden="true">
+      <span>WordPress Expert</span><span class="mx-dot">✦</span>
+      <span>AI Implementation</span><span class="mx-dot">✦</span>
+      <span>Government Systems</span><span class="mx-dot">✦</span>
+      <span>Duda Certified</span><span class="mx-dot">✦</span>
+      <span>Team Leadership</span><span class="mx-dot">✦</span>
+      <span>CRM Integration</span><span class="mx-dot">✦</span>
+      <span>ERP Development</span><span class="mx-dot">✦</span>
+      <span>UI/UX Design</span><span class="mx-dot">✦</span>
+      <span>QA Automation</span><span class="mx-dot">✦</span>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════ STATS ═══════════════════ -->
-<section id="stats">
+<!-- ══════════════════════════════════
+     STATS GRID — flip cards (leftcoast style)
+══════════════════════════════════ -->
+<section id="stats" class="stats-section">
   <div class="container">
-    <div class="stats-grid">
-      <div class="stats-left">
-        <p class="eyebrow">01 — Impact</p>
-        <h2 class="sec-h">
-          <span class="sl">We Turn Ideas</span>
-          <span class="sl"><em>Into Impact.</em></span>
-        </h2>
-        <p class="sec-p">Technology leadership and AI-driven solutions for governments and organizations that need more than a developer — a strategic partner who ships results.</p>
+    <div class="stats-header">
+      <h2 class="section-title">
+        <span class="st-line">We Turn Ideas</span>
+        <span class="st-line"><em>Into Impact.</em></span>
+      </h2>
+      <p class="section-desc reveal-up">Technology leadership and AI-driven solutions for governments and organizations that need more than just a developer — they need a strategic partner who ships results.</p>
+    </div>
+
+    <div class="flip-grid">
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="4">0</span>+
+              <p>Years of Experience</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+            <p>A results-oriented technology leader with a foundation in Electrical Engineering, driving digital transformation across Indonesia and USA.</p>
+          </div>
+        </div>
       </div>
-      <div class="fc-grid">
-        <div class="fc"><div class="fc-in">
-          <div class="fc-front">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
-            <div class="fc-num"><span class="cnt" data-n="4">0</span>+<p>Years Exp.</p></div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="9">0</span>+
+              <p>Team Members Led</p>
+            </div>
           </div>
-          <div class="fc-back"><p>A rigorous, systems-first approach to digital transformation rooted in Electrical Engineering.</p></div>
-        </div></div>
-        <div class="fc"><div class="fc-in">
-          <div class="fc-front">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <div class="fc-num"><span class="cnt" data-n="9">0</span>+<p>Team Led</p></div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <p>Leading 6 developers + 3 designers across cross-functional, cross-continental teams delivering complex web platforms at speed.</p>
           </div>
-          <div class="fc-back"><p>6 developers + 3 designers across cross-continental teams shipping 5+ live platforms.</p></div>
-        </div></div>
-        <div class="fc"><div class="fc-in">
-          <div class="fc-front">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            <div class="fc-num"><span class="cnt" data-n="5">0</span>+<p>Gov. Projects</p></div>
-          </div>
-          <div class="fc-back"><p>Government-scale digital systems deployed for Indonesian city and regency offices.</p></div>
-        </div></div>
-        <div class="fc"><div class="fc-in">
-          <div class="fc-front">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <div class="fc-num"><span class="cnt" data-n="8">0</span>+<p>Certifications</p></div>
-          </div>
-          <div class="fc-back"><p>Duda, cPanel, Advanced WordPress, BNSP Network Admin, and more — always levelling up.</p></div>
-        </div></div>
+        </div>
       </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="5">0</span>+
+              <p>Gov. Projects Shipped</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <p>Government-scale digital systems — PPDB, Licensing Platforms, CMS ecosystems — deployed for Indonesian city and regency offices.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <div class="flip-stat">
+              <span class="count" data-target="8">0</span>+
+              <p>Certifications Earned</p>
+            </div>
+          </div>
+          <div class="flip-back">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <p>Duda Certified, cPanel Professional, Advanced WordPress, Network Admin (BNSP), and more — always learning, always shipping.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ ABOUT ═══════════════════ -->
-<section id="about">
+<!-- ══════════════════════════════════
+     ABOUT — two-col with portrait
+══════════════════════════════════ -->
+<section id="about" class="about-section">
   <div class="container">
     <div class="about-grid">
-      <div class="about-text">
-        <p class="eyebrow">02 — About Me</p>
-        <h2 class="sec-h">
-          <span class="sl">The Studio</span>
-          <span class="sl"><em>Behind the Work.</em></span>
+      <div class="about-text-col">
+        <p class="eyebrow reveal-up">01 — About Me</p>
+        <h2 class="section-title reveal-line-h">
+          <span class="rline">The Studio</span>
+          <span class="rline"><em>Behind the Work.</em></span>
         </h2>
-        <p class="sec-p">A results-oriented technology leader with over <strong>4 years</strong> in digital transformation. My foundation in <strong>Electrical Engineering</strong> gives a rigorous, systems-first approach.</p>
-        <p class="sec-p mt">I specialize in <strong>CMS ecosystems</strong>, AI workflow automation, and cross-functional teams — from government-scale infrastructure in Indonesia to international agency work in Arizona, USA.</p>
-        <div class="about-actions">
-          <a href="#experience" class="tlink">Explore Experience →</a>
-          <a href="#contact"    class="tlink">Get In Touch →</a>
+        <p class="about-body reveal-up">A results-oriented technology leader with over <strong>4 years of experience</strong> in digital transformation. My foundation in <strong>Electrical Engineering</strong> gives me a rigorous, systems-first approach to every problem.</p>
+        <p class="about-body reveal-up">I specialize in <strong>CMS ecosystems</strong>, AI workflow automation, and managing cross-functional teams across continents — from government-scale infrastructure in Indonesia to international agency work in Arizona, USA.</p>
+        <p class="about-body reveal-up">Whether directing the rollout of a city-wide licensing platform or researching AI tools that cut delivery time in half, I build things that <strong>actually move the needle</strong>.</p>
+        <div class="about-actions reveal-up">
+          <a href="#experience" class="text-link">Explore My Experience →</a>
+          <a href="#contact" class="text-link">Get In Touch →</a>
         </div>
       </div>
-      <div class="portrait-wrap">
+
+      <div class="about-portrait-col">
         <div class="portrait-card">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Wahyuwono" class="portrait-img"/>
-          <div class="portrait-ov">
-            <span class="pov-name">Wahyuwono</span>
-            <span class="pov-role">Technology Director & AI Leader</span>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Wahyuwono — Technology Director" class="portrait-img"/>
+          <div class="portrait-overlay">
+            <div class="portrait-info">
+              <span class="portrait-name">Wahyuwono</span>
+              <span class="portrait-role">Technology Director & AI Leader</span>
+            </div>
           </div>
-          <div class="avail-chip"><span class="avail-dot"></span>Open to Projects</div>
-          <div class="float-chip fc-chip-1">AI Leader 🤖</div>
-          <div class="float-chip fc-chip-2">Gov. Systems 🏛️</div>
-          <div class="float-chip fc-chip-3">Malang, ID 🇮🇩</div>
+          <div class="portrait-badge-wrap">
+            <div class="avail-badge">
+              <span class="avail-dot"></span>
+              <span>Open to Projects</span>
+            </div>
+          </div>
+          <!-- Floating tags -->
+          <div class="float-tag float-tag-1">AI Leader 🤖</div>
+          <div class="float-tag float-tag-2">Gov. Systems 🏛️</div>
+          <div class="float-tag float-tag-3">Malang, ID 🇮🇩</div>
         </div>
-        <!-- Three.js floating particles behind portrait -->
-        <canvas id="aboutCanvas"></canvas>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ WORKS ═══════════════════ -->
-<section id="works">
-  <div class="container">
-    <div class="works-head">
-      <div class="works-head-l">
-        <p class="eyebrow works-ey">03 — Selected Works</p>
-        <!-- FIX: heading uses block divs, not inline spans -->
-        <h2 class="sec-h works-h">
-          <span class="sl">Projects That</span>
-          <span class="sl"><em>Ship &amp; Live.</em></span>
-        </h2>
-      </div>
-      <div class="works-head-r">
-        <p class="works-desc">Every card links directly to the live, published website. Click to visit.</p>
-        <div class="wfilter" id="wfilter">
-          <button class="wfb active" data-f="all">All</button>
-          <button class="wfb" data-f="government">Government</button>
-          <button class="wfb" data-f="website">Website</button>
-          <button class="wfb" data-f="platform">Platform</button>
-        </div>
-      </div>
-    </div><!-- /works-head -->
-
-    <div class="works-bento" id="worksBento">
-
-      <a class="wcard wcard-hero" data-cat="government"
-         href="https://ppdb.lahat.go.id" target="_blank" rel="noopener">
-        <div class="wc-img-box"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80" alt="PPDB" class="wc-img"/><div class="wc-shim"></div></div>
-        <div class="wc-body">
-          <span class="wc-idx">01</span>
-          <div class="wc-text">
-            <h3>PPDB Lahat Regency</h3>
-            <p>New Student Admission System for the Education Office of Lahat Regency, South Sumatra.</p>
-            <div class="wc-chips"><span>Government</span><span>PHP</span><span>Laravel</span></div>
-          </div>
-        </div>
-        <div class="wc-arrow">Visit ↗</div><span class="wc-yr">2025</span>
-      </a>
-
-      <a class="wcard wcard-med" data-cat="government"
-         href="https://perizinan.balikpapan.go.id" target="_blank" rel="noopener">
-        <div class="wc-img-box"><img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=900&q=80" alt="Licensing" class="wc-img"/><div class="wc-shim"></div></div>
-        <div class="wc-body">
-          <span class="wc-idx">02</span>
-          <div class="wc-text">
-            <h3>Balikpapan Licensing Platform</h3>
-            <p>Digital licensing for the Urban Planning Office of Balikpapan City.</p>
-            <div class="wc-chips"><span>Government</span><span>WordPress</span></div>
-          </div>
-        </div>
-        <div class="wc-arrow">Visit ↗</div><span class="wc-yr">2024</span>
-      </a>
-
-      <a class="wcard wcard-med" data-cat="website"
-         href="https://deskteam360.com" target="_blank" rel="noopener">
-        <div class="wc-img-box"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="Deskteam360" class="wc-img"/><div class="wc-shim"></div></div>
-        <div class="wc-body">
-          <span class="wc-idx">03</span>
-          <div class="wc-text">
-            <h3>Deskteam360 Agency</h3>
-            <p>Full agency site with CRM integration for an Arizona-based team.</p>
-            <div class="wc-chips"><span>Agency</span><span>Duda</span><span>CRM</span></div>
-          </div>
-        </div>
-        <div class="wc-arrow">Visit ↗</div><span class="wc-yr">2023</span>
-      </a>
-
-      <a class="wcard wcard-med" data-cat="website"
-         href="https://teknologiindonesiamandiri.co.id" target="_blank" rel="noopener">
-        <div class="wc-img-box"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80" alt="PT TIM" class="wc-img"/><div class="wc-shim"></div></div>
-        <div class="wc-body">
-          <span class="wc-idx">04</span>
-          <div class="wc-text">
-            <h3>PT TIM — Company Profile</h3>
-            <p>Corporate site with full SEO & performance optimization.</p>
-            <div class="wc-chips"><span>Corporate</span><span>WordPress</span></div>
-          </div>
-        </div>
-        <div class="wc-arrow">Visit ↗</div><span class="wc-yr">2025</span>
-      </a>
-
-      <a class="wcard wcard-tall" data-cat="platform"
-         href="https://erp.buminovasi.id" target="_blank" rel="noopener">
-        <div class="wc-img-box"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt="ERP" class="wc-img"/><div class="wc-shim"></div></div>
-        <div class="wc-body">
-          <span class="wc-idx">05</span>
-          <div class="wc-text">
-            <h3>ERP Web System</h3>
-            <p>Enterprise Resource Planning platform for PT Bumi Inovasi Ganapati. QA-tested with Selenium + Python.</p>
-            <div class="wc-chips"><span>ERP</span><span>PHP</span><span>Python</span><span>Selenium</span></div>
-          </div>
-        </div>
-        <div class="wc-arrow">Visit ↗</div><span class="wc-yr">2022</span>
-      </a>
-
-      <div class="wc-split-col">
-        <a class="wcard wcard-half" data-cat="website"
-           href="https://wahyuwono-shopify.myshopify.com" target="_blank" rel="noopener">
-          <div class="wc-img-box"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=80" alt="Shopify" class="wc-img"/><div class="wc-shim"></div></div>
-          <div class="wc-body"><span class="wc-idx">06</span><div class="wc-text"><h3>Shopify E-Commerce</h3><div class="wc-chips"><span>Shopify</span></div></div></div>
-          <div class="wc-arrow">Visit ↗</div><span class="wc-yr">2023</span>
-        </a>
-        <a class="wcard wcard-half" data-cat="website"
-           href="https://wahyuwons.github.io" target="_blank" rel="noopener">
-          <div class="wc-img-box"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=700&q=80" alt="GitHub" class="wc-img"/><div class="wc-shim"></div></div>
-          <div class="wc-body"><span class="wc-idx">07</span><div class="wc-text"><h3>GitHub Portfolio</h3><div class="wc-chips"><span>GitHub Pages</span></div></div></div>
-          <div class="wc-arrow">Visit ↗</div><span class="wc-yr">2023</span>
-        </a>
-      </div>
-
-    </div><!-- /works-bento -->
-  </div>
-</section>
-
-<!-- ═══════════════════ DESIGN GALLERY ═══════════════════ -->
-<section id="design">
-  <div class="container">
-    <p class="eyebrow" style="color:rgba(255,255,255,.35)">04 — UI/UX Design</p>
-    <div class="design-head-row">
-      <h2 class="sec-h design-h">
-        <span class="sl">Interfaces People</span>
-        <span class="sl"><em>Come Back To.</em></span>
+<!-- ══════════════════════════════════
+     EXPERIENCE — out-of-the-box 3D cards
+══════════════════════════════════ -->
+<section id="experience" class="exp-section">
+  <div class="exp-sticky-header">
+    <div class="container">
+      <p class="eyebrow">02 — Experience</p>
+      <h2 class="section-title">
+        <span class="rline">Where I've</span>
+        <span class="rline"><em>Made an Impact.</em></span>
       </h2>
-      <p class="design-desc">Pixel-perfect designs crafted in Figma — from wireframe to high-fidelity prototype, engineered for clarity and conversion.</p>
     </div>
   </div>
 
-  <div class="drail-outer" id="drailOuter">
-    <div class="drail" id="drail">
-
-      <a class="dc" href="https://www.figma.com/file/p1" target="_blank" rel="noopener" style="--acc:#6366f1">
-        <div class="dc-screen"><div class="dc-chrome"><span></span><span></span><span></span></div>
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Dashboard" class="dc-img"/></div>
-        <div class="dc-foot"><span class="dc-cat">Dashboard UI</span><h4>Analytics Dashboard System</h4><span class="dc-arr">→</span></div>
-      </a>
-
-      <a class="dc" href="https://www.figma.com/file/p2" target="_blank" rel="noopener" style="--acc:#f59e0b">
-        <div class="dc-screen"><div class="dc-chrome"><span></span><span></span><span></span></div>
-        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80" alt="Brand" class="dc-img"/></div>
-        <div class="dc-foot"><span class="dc-cat">Brand Identity</span><h4>Corporate Brand System — Gov Agency</h4><span class="dc-arr">→</span></div>
-      </a>
-
-      <a class="dc" href="https://www.figma.com/file/p3" target="_blank" rel="noopener" style="--acc:#10b981">
-        <div class="dc-screen"><div class="dc-chrome"><span></span><span></span><span></span></div>
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Mobile" class="dc-img"/></div>
-        <div class="dc-foot"><span class="dc-cat">Mobile UX</span><h4>Android App — Kotlin UX Research</h4><span class="dc-arr">→</span></div>
-      </a>
-
-      <a class="dc" href="https://www.figma.com/file/p4" target="_blank" rel="noopener" style="--acc:#ec4899">
-        <div class="dc-screen"><div class="dc-chrome"><span></span><span></span><span></span></div>
-        <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&q=80" alt="Ecommerce" class="dc-img"/></div>
-        <div class="dc-foot"><span class="dc-cat">E-Commerce</span><h4>Shopify Store UI — Figma to Live</h4><span class="dc-arr">→</span></div>
-      </a>
-
-      <a class="dc" href="https://www.figma.com/file/p5" target="_blank" rel="noopener" style="--acc:#8b5cf6">
-        <div class="dc-screen"><div class="dc-chrome"><span></span><span></span><span></span></div>
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="ERP" class="dc-img"/></div>
-        <div class="dc-foot"><span class="dc-cat">ERP Interface</span><h4>ERP Dashboard — PRD to Prototype</h4><span class="dc-arr">→</span></div>
-      </a>
-
-      <a class="dc" href="https://www.figma.com/file/p6" target="_blank" rel="noopener" style="--acc:#f97316">
-        <div class="dc-screen"><div class="dc-chrome"><span></span><span></span><span></span></div>
-        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="CRM" class="dc-img"/></div>
-        <div class="dc-foot"><span class="dc-cat">CRM Design</span><h4>CRM Workflow — Elementor Custom</h4><span class="dc-arr">→</span></div>
-      </a>
-
-    </div>
-    <div class="drail-hint" id="drailHint">← Drag to explore →</div>
-  </div>
-</section>
-
-<!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
-<section id="experience">
   <div class="container">
-    <p class="eyebrow" style="color:rgba(255,255,255,.35)">05 — Experience</p>
-    <h2 class="sec-h" style="color:#fff;margin-bottom:3.5rem">
-      <span class="sl">Where I've</span>
-      <span class="sl"><em>Made an Impact.</em></span>
-    </h2>
     <div class="exp-grid">
 
-      <div class="exp-card" data-bg="#1a1a2e">
-        <div class="ec-top"><span class="ec-period">Dec 2025 — Present</span><span class="ec-badge">Current</span></div>
-        <div class="ec-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <h3 class="ec-role">Director</h3>
-        <p class="ec-co">PT Teknologi Indonesia Mandiri</p>
-        <p class="ec-loc">📍 Indonesia</p>
-        <p class="ec-desc">Defining the company's strategic vision focused on high-performance government systems. Managing end-to-end business operations from client acquisition to technical roadmaps.</p>
-        <ul class="ec-list">
-          <li><strong>PPDB System</strong> — Education Office of Lahat Regency</li>
-          <li><strong>Licensing Platform</strong> — Urban Planning Office of Balikpapan City</li>
-        </ul>
-        <div class="ec-tags"><span>Government Tech</span><span>Strategic Planning</span><span>ERP</span></div>
+      <!-- Card 1 -->
+      <div class="exp-card" data-color="#1a1a2e">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Dec 2025 — Present</div>
+            <div class="exp-badge">Current</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="exp-role">Director</h3>
+          <p class="exp-company">PT Teknologi Indonesia Mandiri</p>
+          <p class="exp-location">📍 Indonesia</p>
+          <p class="exp-desc">Defining the company's strategic vision focused on high-performance government systems. Managing end-to-end business operations from client acquisition to technical roadmaps.</p>
+          <ul class="exp-highlights">
+            <li><strong>PPDB System</strong> — New Student Admission System for the Education Office of Lahat Regency</li>
+            <li><strong>Licensing Platform</strong> — Digital licensing system for the Urban Planning Office of Balikpapan City</li>
+            <li>Leading all business and technical operations end-to-end</li>
+          </ul>
+          <div class="exp-tags">
+            <span>Government Tech</span><span>Strategic Planning</span><span>Client Negotiation</span><span>ERP</span>
+          </div>
+        </div>
       </div>
 
-      <div class="exp-card" data-bg="#0f1923">
-        <div class="ec-top"><span class="ec-period">Dec 2022 — Present · Remote</span><span class="ec-badge" style="color:#7b9ef7;background:rgba(59,91,219,.12);border-color:rgba(59,91,219,.2)">Remote</span></div>
-        <div class="ec-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-        <h3 class="ec-role">Team Leader & AI Researcher</h3>
-        <p class="ec-co">Deskteam360</p>
-        <p class="ec-loc">📍 Arizona, United States</p>
-        <p class="ec-desc">Leading 6 developers + 3 designers. Responsible for delivery quality and workload across 5+ web platforms.</p>
-        <ul class="ec-list">
-          <li>AI research to automate repetitive tasks — boosting team productivity</li>
-          <li>Multi-platform: WordPress, Duda, Shopify, Wix, Squarespace</li>
-          <li>Building integrated CRM workflows to enhance UX and efficiency</li>
-        </ul>
-        <div class="ec-tags"><span>AI Research</span><span>WordPress</span><span>Duda</span><span>CRM</span></div>
+      <!-- Card 2 -->
+      <div class="exp-card" data-color="#0f1923">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Dec 2022 — Present · Remote</div>
+            <div class="exp-badge exp-badge-blue">Remote</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3 class="exp-role">Team Leader & AI Researcher</h3>
+          <p class="exp-company">Deskteam360</p>
+          <p class="exp-location">📍 Arizona, United States</p>
+          <p class="exp-desc">Leading a high-performance team of 6 developers and 3 designers. Responsible for delivery quality and workload management across 5+ web platforms.</p>
+          <ul class="exp-highlights">
+            <li>Leading AI research initiatives to automate repetitive tasks — significantly boosting team productivity</li>
+            <li>Multi-platform development: WordPress, Duda, Shopify, Wix, Squarespace</li>
+            <li>Building integrated CRM workflows to enhance UX and operational efficiency</li>
+          </ul>
+          <div class="exp-tags">
+            <span>AI Research</span><span>WordPress</span><span>Duda</span><span>Shopify</span><span>CRM</span><span>Team Leadership</span>
+          </div>
+        </div>
       </div>
 
-      <div class="exp-card" data-bg="#131320">
-        <div class="ec-top"><span class="ec-period">Jul 2022 — Feb 2023</span><span class="ec-badge" style="color:#52c77d;background:rgba(45,106,79,.12);border-color:rgba(45,106,79,.2)">Past</span></div>
-        <div class="ec-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
-        <h3 class="ec-role">QA Engineer & Associate PM</h3>
-        <p class="ec-co">PT Bumi Inovasi Ganapati</p>
-        <p class="ec-loc">📍 Surabaya, Indonesia</p>
-        <p class="ec-desc">Dual role in QA and product management for web-based ERP systems. Managing a team of 3 engineers.</p>
-        <ul class="ec-list">
-          <li>QA automation via Selenium IDE + Python</li>
-          <li>Writing user stories, PRDs, customer journeys</li>
-          <li>Designing UI/UX mockups and conducting UX research</li>
-        </ul>
-        <div class="ec-tags"><span>Selenium</span><span>Python</span><span>Product Mgmt</span><span>Figma</span></div>
+      <!-- Card 3 -->
+      <div class="exp-card" data-color="#131320">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Jul 2022 — Feb 2023</div>
+            <div class="exp-badge exp-badge-green">Past</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <h3 class="exp-role">QA Engineer & Associate PM</h3>
+          <p class="exp-company">PT Bumi Inovasi Ganapati</p>
+          <p class="exp-location">📍 Surabaya, Indonesia</p>
+          <p class="exp-desc">Dual role in quality assurance and product management for web-based ERP systems, managing a team of 3 engineers.</p>
+          <ul class="exp-highlights">
+            <li>QA automation testing via Selenium IDE with Python, managing 3 engineers' output</li>
+            <li>Writing user stories, PRDs, customer journeys, and benchmark simulations</li>
+            <li>Designing UI/UX mockups and conducting UX research</li>
+          </ul>
+          <div class="exp-tags">
+            <span>Selenium</span><span>Python</span><span>Product Management</span><span>UI/UX</span><span>Figma</span>
+          </div>
+        </div>
       </div>
 
-      <div class="exp-card" data-bg="#0d1b0d">
-        <div class="ec-top"><span class="ec-period">Sep 2021 — Oct 2021</span><span class="ec-badge" style="color:#d4a96a;background:rgba(212,169,106,.1);border-color:rgba(212,169,106,.2)">Intern</span></div>
-        <div class="ec-ico"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <h3 class="ec-role">Analysis Laboratory Intern</h3>
-        <p class="ec-co">PT PLN (State Electricity Company)</p>
-        <p class="ec-loc">📍 Pasuruan, Indonesia</p>
-        <p class="ec-desc">Measurement systems and data analysis at Indonesia's national electricity company.</p>
-        <ul class="ec-list">
-          <li>Developed SOPs for measuring instruments</li>
-          <li>PHB-TR monitoring tool and field data collection</li>
-        </ul>
-        <div class="ec-tags"><span>Electrical Engineering</span><span>Data Analysis</span><span>SOPs</span></div>
+      <!-- Card 4 -->
+      <div class="exp-card" data-color="#0d1b0d">
+        <div class="exp-card-inner">
+          <div class="exp-card-header">
+            <div class="exp-period">Sep 2021 — Oct 2021</div>
+            <div class="exp-badge exp-badge-gold">Intern</div>
+          </div>
+          <div class="exp-company-logo">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="exp-role">Analysis Laboratory Intern</h3>
+          <p class="exp-company">PT PLN (State Electricity Company)</p>
+          <p class="exp-location">📍 Pasuruan, Indonesia</p>
+          <p class="exp-desc">Contributed to measurement systems and data analysis at Indonesia's national electricity company.</p>
+          <ul class="exp-highlights">
+            <li>Developed standard operating procedures for measuring instruments</li>
+            <li>Participated in PHB-TR monitoring tool development and field data collection</li>
+            <li>Assisted the laboratory manager in innovation project data analysis</li>
+          </ul>
+          <div class="exp-tags">
+            <span>Electrical Engineering</span><span>Data Analysis</span><span>SOPs</span>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ SKILLS ═══════════════════ -->
-<section id="skills">
+<!-- ══════════════════════════════════
+     WORKS — "filmstrip" live websites
+══════════════════════════════════ -->
+<section id="works" class="works-section">
+  <div class="works-header-wrap container">
+    <div class="works-header-left">
+      <p class="eyebrow works-eyebrow">03 — Selected Works</p>
+      <h2 class="section-title works-title">
+        <span class="rline">Projects That</span>
+        <span class="rline"><em>Ship & Live.</em></span>
+      </h2>
+    </div>
+    <div class="works-header-right">
+      <p class="works-header-desc">Every project linked directly to the live, published website. Click any card to visit.</p>
+      <div class="works-filter" id="worksFilter">
+        <button class="wf-btn active" data-filter="all">All</button>
+        <button class="wf-btn" data-filter="website">Website</button>
+        <button class="wf-btn" data-filter="government">Government</button>
+        <button class="wf-btn" data-filter="platform">Platform</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bento-style asymmetric grid -->
+  <div class="works-bento container" id="worksBento">
+
+    <!-- HERO PROJECT — full width -->
+    <a href="https://ppdb.lahat.go.id" target="_blank" rel="noopener"
+       class="wc wc-hero" data-cat="government"
+       data-title="PPDB Lahat Regency" data-year="2025">
+      <div class="wc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80" alt="PPDB System" class="wc-img"/>
+        <div class="wc-img-overlay"></div>
+      </div>
+      <div class="wc-info">
+        <div class="wc-num">01</div>
+        <div class="wc-mid">
+          <h3 class="wc-title">PPDB Lahat Regency</h3>
+          <p class="wc-sub">Government · New Student Admission System for the Education Office of Lahat Regency, South Sumatra.</p>
+        </div>
+        <div class="wc-tags-wrap">
+          <span class="wc-tag">Government Tech</span>
+          <span class="wc-tag">PHP</span>
+          <span class="wc-tag">Laravel</span>
+        </div>
+      </div>
+      <div class="wc-visit">
+        <span>Visit Site</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H6M16 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="wc-year">2025</div>
+    </a>
+
+    <!-- ROW 2 — 3 medium cards -->
+    <a href="https://perizinan.balikpapan.go.id" target="_blank" rel="noopener"
+       class="wc wc-med" data-cat="government"
+       data-title="Balikpapan Licensing Platform">
+      <div class="wc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=900&q=80" alt="Licensing Platform" class="wc-img"/>
+        <div class="wc-img-overlay"></div>
+      </div>
+      <div class="wc-info">
+        <div class="wc-num">02</div>
+        <div class="wc-mid">
+          <h3 class="wc-title">Balikpapan Licensing Platform</h3>
+          <p class="wc-sub">Digital licensing system for the Urban Planning Office of Balikpapan City.</p>
+        </div>
+        <div class="wc-tags-wrap">
+          <span class="wc-tag">Government</span><span class="wc-tag">WordPress</span>
+        </div>
+      </div>
+      <div class="wc-visit"><span>Visit Site</span><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H6M16 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="wc-year">2024</div>
+    </a>
+
+    <a href="https://deskteam360.com" target="_blank" rel="noopener"
+       class="wc wc-med" data-cat="website"
+       data-title="Deskteam360 Agency">
+      <div class="wc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="Deskteam360" class="wc-img"/>
+        <div class="wc-img-overlay"></div>
+      </div>
+      <div class="wc-info">
+        <div class="wc-num">03</div>
+        <div class="wc-mid">
+          <h3 class="wc-title">Deskteam360 Agency</h3>
+          <p class="wc-sub">Full agency website with CRM integration and automated client onboarding for an Arizona-based team.</p>
+        </div>
+        <div class="wc-tags-wrap">
+          <span class="wc-tag">Agency</span><span class="wc-tag">Duda</span><span class="wc-tag">CRM</span>
+        </div>
+      </div>
+      <div class="wc-visit"><span>Visit Site</span><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H6M16 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="wc-year">2023</div>
+    </a>
+
+    <a href="https://teknologiindonesiamandiri.co.id" target="_blank" rel="noopener"
+       class="wc wc-med" data-cat="website"
+       data-title="PT Teknologi Indonesia Mandiri">
+      <div class="wc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80" alt="PT TIM" class="wc-img"/>
+        <div class="wc-img-overlay"></div>
+      </div>
+      <div class="wc-info">
+        <div class="wc-num">04</div>
+        <div class="wc-mid">
+          <h3 class="wc-title">PT TIM — Company Profile</h3>
+          <p class="wc-sub">Corporate website for a government-focused technology company in Indonesia. Full SEO + performance optimization.</p>
+        </div>
+        <div class="wc-tags-wrap">
+          <span class="wc-tag">Corporate</span><span class="wc-tag">WordPress</span>
+        </div>
+      </div>
+      <div class="wc-visit"><span>Visit Site</span><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H6M16 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="wc-year">2025</div>
+    </a>
+
+    <!-- ROW 3 — 2 tall cards side by side -->
+    <a href="https://erp.buminovasi.id" target="_blank" rel="noopener"
+       class="wc wc-tall" data-cat="platform"
+       data-title="ERP Web System — BIG">
+      <div class="wc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt="ERP System" class="wc-img"/>
+        <div class="wc-img-overlay"></div>
+      </div>
+      <div class="wc-info">
+        <div class="wc-num">05</div>
+        <div class="wc-mid">
+          <h3 class="wc-title">ERP Web System</h3>
+          <p class="wc-sub">Web-based Enterprise Resource Planning platform built for PT Bumi Inovasi Ganapati. QA-tested with Selenium + Python automation.</p>
+        </div>
+        <div class="wc-tags-wrap">
+          <span class="wc-tag">ERP</span><span class="wc-tag">PHP</span><span class="wc-tag">Python</span><span class="wc-tag">Selenium</span>
+        </div>
+      </div>
+      <div class="wc-visit"><span>Visit Site</span><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H6M16 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="wc-year">2022</div>
+    </a>
+
+    <div class="wc-split">
+      <a href="https://wahyuwono-shopify.myshopify.com" target="_blank" rel="noopener"
+         class="wc wc-half" data-cat="website"
+         data-title="Shopify E-Commerce">
+        <div class="wc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=80" alt="Shopify Store" class="wc-img"/>
+          <div class="wc-img-overlay"></div>
+        </div>
+        <div class="wc-info">
+          <div class="wc-num">06</div>
+          <div class="wc-mid"><h3 class="wc-title">Shopify E-Commerce</h3></div>
+          <div class="wc-tags-wrap"><span class="wc-tag">Shopify</span><span class="wc-tag">E-Com</span></div>
+        </div>
+        <div class="wc-visit"><span>Visit</span><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H6M16 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="wc-year">2023</div>
+      </a>
+
+      <a href="https://wahyuwono-wix.wixsite.com/portfolio" target="_blank" rel="noopener"
+         class="wc wc-half" data-cat="website"
+         data-title="Wix CMS Portfolio">
+        <div class="wc-img-wrap">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80" alt="Wix Portfolio" class="wc-img"/>
+          <div class="wc-img-overlay"></div>
+        </div>
+        <div class="wc-info">
+          <div class="wc-num">07</div>
+          <div class="wc-mid"><h3 class="wc-title">Wix CMS Portfolio</h3></div>
+          <div class="wc-tags-wrap"><span class="wc-tag">Wix</span><span class="wc-tag">CMS</span></div>
+        </div>
+        <div class="wc-visit"><span>Visit</span><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M2 16L16 2M16 2H6M16 2V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div class="wc-year">2023</div>
+      </a>
+    </div>
+
+  </div><!-- /works-bento -->
+</section>
+
+<!-- ══════════════════════════════════
+     DESIGN GALLERY — UI/UX showcase
+     Infinite horizontal drag scroll
+══════════════════════════════════ -->
+<section id="design" class="design-section">
   <div class="container">
-    <p class="eyebrow">06 — Core Competencies</p>
-    <h2 class="sec-h" style="margin-bottom:3rem">
-      <span class="sl">Built for</span>
-      <span class="sl"><em>Complex Challenges.</em></span>
-    </h2>
-    <div class="skills-grid">
-      <div class="sp" data-n="01">
-        <div class="sp-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Strategic Leadership</h3>
-        <div class="sp-chips"><span>Director</span><span>Team Mgmt</span><span>Strategy</span><span>Negotiation</span></div>
-        <div class="sp-bars">
-          <div class="sb-item"><span>Leadership</span><div class="sb-track"><div class="sb-fill" data-w="90"></div></div></div>
-          <div class="sb-item"><span>Strategy</span><div class="sb-track"><div class="sb-fill" data-w="88"></div></div></div>
-        </div>
+    <div class="design-header">
+      <p class="eyebrow reveal-up">04 — UI/UX Design</p>
+      <div class="design-header-row">
+        <h2 class="section-title design-title reveal-line-h">
+          <span class="rline">Interfaces People</span>
+          <span class="rline"><em>Come Back To.</em></span>
+        </h2>
+        <p class="design-desc reveal-up">Pixel-perfect designs crafted in Figma — from wireframe to high-fidelity prototype. Each interface engineered for clarity, delight, and conversion.</p>
       </div>
-      <div class="sp" data-n="02">
-        <div class="sp-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-        <h3>AI &amp; Systems</h3>
-        <div class="sp-chips"><span>AI Automation</span><span>ERP</span><span>Expert Systems</span></div>
-        <div class="sp-bars">
-          <div class="sb-item"><span>AI Implementation</span><div class="sb-track"><div class="sb-fill" data-w="85"></div></div></div>
-          <div class="sb-item"><span>Systems Design</span><div class="sb-track"><div class="sb-fill" data-w="82"></div></div></div>
-        </div>
+    </div>
+  </div>
+
+  <!-- Full-width horizontal drag rail -->
+  <div class="design-rail-outer" id="designRailOuter">
+    <div class="design-rail" id="designRail">
+
+      <div class="dc" style="--dc-accent:#6366f1">
+        <a href="https://www.figma.com/file/your-file-id" target="_blank" rel="noopener" class="dc-link">
+          <div class="dc-screen">
+            <div class="dc-browser-bar"><span></span><span></span><span></span></div>
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Dashboard UI" class="dc-img"/>
+          </div>
+          <div class="dc-info">
+            <span class="dc-cat">Dashboard UI</span>
+            <h4 class="dc-name">Analytics Dashboard System</h4>
+            <span class="dc-arrow">→</span>
+          </div>
+        </a>
       </div>
-      <div class="sp" data-n="03">
-        <div class="sp-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <h3>Web &amp; CMS Ecosystem</h3>
-        <div class="sp-chips"><span>WordPress</span><span>Duda</span><span>Shopify</span><span>Elementor</span></div>
-        <div class="sp-bars">
-          <div class="sb-item"><span>WordPress</span><div class="sb-track"><div class="sb-fill" data-w="95"></div></div></div>
-          <div class="sb-item"><span>Multi-platform</span><div class="sb-track"><div class="sb-fill" data-w="88"></div></div></div>
-        </div>
+
+      <div class="dc" style="--dc-accent:#f59e0b">
+        <a href="https://www.figma.com/file/your-file-id-2" target="_blank" rel="noopener" class="dc-link">
+          <div class="dc-screen">
+            <div class="dc-browser-bar"><span></span><span></span><span></span></div>
+            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80" alt="Brand Design" class="dc-img"/>
+          </div>
+          <div class="dc-info">
+            <span class="dc-cat">Brand Identity</span>
+            <h4 class="dc-name">Corporate Brand System — Gov Agency</h4>
+            <span class="dc-arrow">→</span>
+          </div>
+        </a>
       </div>
-      <div class="sp" data-n="04">
-        <div class="sp-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h3>Technical Stack</h3>
-        <div class="sp-chips"><span>PHP</span><span>Python</span><span>JavaScript</span><span>SQL</span><span>Selenium</span></div>
-        <div class="sp-bars">
-          <div class="sb-item"><span>Web Dev</span><div class="sb-track"><div class="sb-fill" data-w="80"></div></div></div>
-          <div class="sb-item"><span>QA Automation</span><div class="sb-track"><div class="sb-fill" data-w="75"></div></div></div>
-        </div>
+
+      <div class="dc" style="--dc-accent:#10b981">
+        <a href="https://www.figma.com/file/your-file-id-3" target="_blank" rel="noopener" class="dc-link">
+          <div class="dc-screen">
+            <div class="dc-browser-bar"><span></span><span></span><span></span></div>
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Mobile App" class="dc-img"/>
+          </div>
+          <div class="dc-info">
+            <span class="dc-cat">Mobile UX</span>
+            <h4 class="dc-name">Android App — Kotlin UX Research</h4>
+            <span class="dc-arrow">→</span>
+          </div>
+        </a>
       </div>
-      <div class="sp" data-n="05">
-        <div class="sp-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <h3>Product &amp; UX</h3>
-        <div class="sp-chips"><span>PRD Writing</span><span>User Stories</span><span>Prototyping</span><span>UX Research</span></div>
-        <div class="sp-bars">
-          <div class="sb-item"><span>UI/UX Design</span><div class="sb-track"><div class="sb-fill" data-w="72"></div></div></div>
-          <div class="sb-item"><span>Product Mgmt</span><div class="sb-track"><div class="sb-fill" data-w="78"></div></div></div>
-        </div>
+
+      <div class="dc" style="--dc-accent:#ec4899">
+        <a href="https://www.figma.com/file/your-file-id-4" target="_blank" rel="noopener" class="dc-link">
+          <div class="dc-screen">
+            <div class="dc-browser-bar"><span></span><span></span><span></span></div>
+            <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=800&q=80" alt="E-Commerce UI" class="dc-img"/>
+          </div>
+          <div class="dc-info">
+            <span class="dc-cat">E-Commerce</span>
+            <h4 class="dc-name">Shopify Store UI — Figma to Live</h4>
+            <span class="dc-arrow">→</span>
+          </div>
+        </a>
       </div>
+
+      <div class="dc" style="--dc-accent:#8b5cf6">
+        <a href="https://www.figma.com/file/your-file-id-5" target="_blank" rel="noopener" class="dc-link">
+          <div class="dc-screen">
+            <div class="dc-browser-bar"><span></span><span></span><span></span></div>
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" alt="ERP UI" class="dc-img"/>
+          </div>
+          <div class="dc-info">
+            <span class="dc-cat">ERP Interface</span>
+            <h4 class="dc-name">ERP Dashboard — PRD to Prototype</h4>
+            <span class="dc-arrow">→</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="dc" style="--dc-accent:#f97316">
+        <a href="https://www.figma.com/file/your-file-id-6" target="_blank" rel="noopener" class="dc-link">
+          <div class="dc-screen">
+            <div class="dc-browser-bar"><span></span><span></span><span></span></div>
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80" alt="CRM UI" class="dc-img"/>
+          </div>
+          <div class="dc-info">
+            <span class="dc-cat">CRM Design</span>
+            <h4 class="dc-name">CRM Workflow — Elementor Custom</h4>
+            <span class="dc-arrow">→</span>
+          </div>
+        </a>
+      </div>
+
+    </div><!-- /design-rail -->
+    <!-- Drag hint -->
+    <div class="rail-drag-hint" id="railDragHint">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span>Drag to explore</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ CONTACT ═══════════════════ -->
-<section id="contact">
+<!-- ══════════════════════════════════
+     SKILLS — horizontal scroll sections
+══════════════════════════════════ -->
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="skills-header">
+      <p class="eyebrow reveal-up">05 — Core Competencies</p>
+      <h2 class="section-title reveal-line-h">
+        <span class="rline">Built for</span>
+        <span class="rline"><em>Complex Challenges.</em></span>
+      </h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-panel" data-num="01">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Strategic Leadership</h3>
+        <div class="sp-tags">
+          <span>Company Director</span><span>Team Management</span><span>Strategic Planning</span><span>Client Negotiation</span><span>Cross-functional Teams</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>Leadership</span><div class="sp-bar"><div class="sp-fill" data-w="90"></div></div></div>
+          <div class="sp-bar-item"><span>Strategy</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="02">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>AI &amp; Systems</h3>
+        <div class="sp-tags">
+          <span>AI Workflow Automation</span><span>Industrial AI Research</span><span>ERP Development</span><span>Expert Systems</span><span>Process Optimization</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>AI Implementation</span><div class="sp-bar"><div class="sp-fill" data-w="85"></div></div></div>
+          <div class="sp-bar-item"><span>Systems Design</span><div class="sp-bar"><div class="sp-fill" data-w="82"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="03">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Web &amp; CMS Ecosystem</h3>
+        <div class="sp-tags">
+          <span>WordPress Expert</span><span>Duda Certified</span><span>Shopify</span><span>Elementor</span><span>Wix</span><span>Squarespace</span><span>API Integration</span><span>CRM Management</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>WordPress</span><div class="sp-bar"><div class="sp-fill" data-w="95"></div></div></div>
+          <div class="sp-bar-item"><span>Multi-platform</span><div class="sp-bar"><div class="sp-fill" data-w="88"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="04">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Technical Stack</h3>
+        <div class="sp-tags">
+          <span>PHP</span><span>HTML/CSS</span><span>SQL</span><span>Python</span><span>JavaScript</span><span>Selenium IDE</span><span>Figma</span><span>Android/Kotlin</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>Web Development</span><div class="sp-bar"><div class="sp-fill" data-w="80"></div></div></div>
+          <div class="sp-bar-item"><span>QA Automation</span><div class="sp-bar"><div class="sp-fill" data-w="75"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-panel" data-num="05">
+        <div class="sp-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Product &amp; UX</h3>
+        <div class="sp-tags">
+          <span>PRD Writing</span><span>User Stories</span><span>UX Research</span><span>Prototyping</span><span>Customer Journey</span>
+        </div>
+        <div class="sp-bar-group">
+          <div class="sp-bar-item"><span>UI/UX Design</span><div class="sp-bar"><div class="sp-fill" data-w="72"></div></div></div>
+          <div class="sp-bar-item"><span>Product Management</span><div class="sp-bar"><div class="sp-fill" data-w="78"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     EDUCATION + CERTS — bento grid
+══════════════════════════════════ -->
+<section id="education" class="edu-section">
+  <div class="container">
+    <div class="edu-header">
+      <p class="eyebrow reveal-up">06 — Education &amp; Certifications</p>
+      <h2 class="section-title reveal-line-h">
+        <span class="rline">Academic &amp;</span>
+        <span class="rline"><em>Always Learning.</em></span>
+      </h2>
+    </div>
+
+    <div class="edu-bento">
+
+      <div class="bento-edu bento-large">
+        <div class="bento-icon">🎓</div>
+        <p class="bento-tag">Bachelor's Degree</p>
+        <h3>Electrical Engineering</h3>
+        <p class="bento-school">Universitas Muhammadiyah Malang</p>
+        <p class="bento-period">2018 — 2022</p>
+        <p class="bento-desc">Focus: Network Security, Human-Machine Interface, Mobile Web Development. Final Project: Expert System for Cat Disease Diagnosis using Web-based Case-Based Reasoning.</p>
+        <div class="bento-award">
+          <span>🏆</span>
+          <span>2nd Best Graduate — Electrical Engineering Faculty</span>
+        </div>
+        <div class="bento-gpa">GPA: 3.54 / 4.00</div>
+      </div>
+
+      <div class="certs-grid">
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">Duda Certified Developer</span><span class="cert-issuer">Duda</span></div>
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">cPanel Professional</span><span class="cert-issuer">cPanel</span></div>
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">Advanced WordPress</span><span class="cert-issuer">TemplateMonster</span></div>
+        <div class="cert-item"><span class="cert-year">2025</span><span class="cert-name">WordPress Elementor</span><span class="cert-issuer">TemplateMonster</span></div>
+        <div class="cert-item"><span class="cert-year">2022</span><span class="cert-name">Javascript 101</span><span class="cert-issuer">Altera Academy</span></div>
+        <div class="cert-item"><span class="cert-year">2022</span><span class="cert-name">Back End 101</span><span class="cert-issuer">Altera Academy</span></div>
+        <div class="cert-item cert-highlight"><span class="cert-year">2022</span><span class="cert-name">Network Administrator</span><span class="cert-issuer">BNSP National Certification</span></div>
+        <div class="cert-item"><span class="cert-year">2021</span><span class="cert-name">Android Dev with Kotlin</span><span class="cert-issuer">Kampus Merdeka</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     CTA — Start My Project (leftcoast style)
+══════════════════════════════════ -->
+<section id="contact" class="cta-section">
   <div class="container">
     <div class="cta-card">
-      <!-- Three.js subtle bg on CTA -->
-      <canvas id="ctaCanvas"></canvas>
-      <div class="cft-tags">
-        <span class="cft">WordPress</span><span class="cft">Duda</span>
-        <span class="cft">AI</span><span class="cft">Gov</span>
-        <span class="cft">ERP</span><span class="cft">CRM</span>
-      </div>
+
+      <!-- Floating brand logos -->
+      <div class="cta-float cta-float-1"><span>WordPress</span></div>
+      <div class="cta-float cta-float-2"><span>Duda</span></div>
+      <div class="cta-float cta-float-3"><span>AI</span></div>
+      <div class="cta-float cta-float-4"><span>Gov</span></div>
+      <div class="cta-float cta-float-5"><span>ERP</span></div>
+      <div class="cta-float cta-float-6"><span>CRM</span></div>
+
       <div class="cta-center">
-        <h2 class="sec-h cta-h">
-          <span class="sl">Have a</span>
-          <span class="sl"><em>Project?</em></span>
+        <h2 class="cta-big-title">
+          <span class="cta-line">Have a</span>
+          <span class="cta-line"><em>Project?</em></span>
         </h2>
-        <p class="cta-sub">Open to strategic partnerships, government digital projects, AI consulting, and international collaborations.</p>
-        <a href="mailto:wahyuwons@gmail.com" class="cta-btn">Get In Touch ↗</a>
-      </div>
-      <div class="contact-row">
-        <a href="mailto:wahyuwons@gmail.com" class="ci">
-          <div class="ci-ic">@</div>
-          <div class="ci-tx"><span>Email</span><span>wahyuwons@gmail.com</span></div>
-        </a>
-        <a href="tel:+6285791567283" class="ci">
-          <div class="ci-ic">☎</div>
-          <div class="ci-tx"><span>WhatsApp</span><span>+62 857 9156 7283</span></div>
-        </a>
-        <a href="https://www.linkedin.com/in/wahyu-wono-174033195/" target="_blank" rel="noopener" class="ci">
-          <div class="ci-ic">in</div>
-          <div class="ci-tx"><span>LinkedIn</span><span>wahyu-wono-174033195</span></div>
-        </a>
-        <a href="https://wahyuwons.github.io/" target="_blank" rel="noopener" class="ci">
-          <div class="ci-ic">&lt;/&gt;</div>
-          <div class="ci-tx"><span>GitHub</span><span>wahyuwons.github.io</span></div>
+        <p class="cta-sub">Open to strategic partnerships, government digital projects, AI implementation consulting, and international collaborations. Every standout project begins with one conversation.</p>
+        <a href="mailto:wahyuwons@gmail.com" class="cta-main-btn">
+          <span>Get In Touch</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 14L14 2M14 2H5M14 2V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </a>
       </div>
+
+      <div class="contact-grid">
+        <a href="mailto:wahyuwons@gmail.com" class="contact-item">
+          <div class="ci-icon">@</div>
+          <div class="ci-text">
+            <span class="ci-label">Email</span>
+            <span class="ci-value">wahyuwons@gmail.com</span>
+          </div>
+        </a>
+        <a href="tel:+6285791567283" class="contact-item">
+          <div class="ci-icon">☎</div>
+          <div class="ci-text">
+            <span class="ci-label">Phone / WhatsApp</span>
+            <span class="ci-value">+62 857 9156 7283</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/wahyu-wono-174033195/" target="_blank" rel="noopener" class="contact-item">
+          <div class="ci-icon">in</div>
+          <div class="ci-text">
+            <span class="ci-label">LinkedIn</span>
+            <span class="ci-value">wahyu-wono-174033195</span>
+          </div>
+        </a>
+        <a href="https://wahyuwons.github.io/" target="_blank" rel="noopener" class="contact-item">
+          <div class="ci-icon">&lt;/&gt;</div>
+          <div class="ci-text">
+            <span class="ci-label">Portfolio / GitHub</span>
+            <span class="ci-value">wahyuwons.github.io</span>
+          </div>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
 <footer id="footer">
   <div class="container">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="#" class="ft-logo">W<span class="ft-dot"></span></a>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">W<span class="footer-logo-dot"></span></a>
         <p>Malang, West Java, Indonesia · English C1 Advanced</p>
       </div>
-      <div class="ft-cols">
-        <div class="ft-col">
+      <div class="footer-nav-cols">
+        <div class="footer-col">
           <h4>Studio</h4>
-          <a href="#about">About</a><a href="#works">Works</a>
-          <a href="#design">Design</a><a href="#experience">Experience</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
           <a href="#contact">Contact</a>
         </div>
-        <div class="ft-col">
+        <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://www.linkedin.com/in/wahyu-wono-174033195/" target="_blank">LinkedIn</a>
-          <a href="https://wahyuwons.github.io/" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/wahyu-wono-174033195/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://wahyuwons.github.io/" target="_blank" rel="noopener">GitHub</a>
           <a href="mailto:wahyuwons@gmail.com">Email</a>
         </div>
-        <div class="ft-col">
-          <h4>Contact</h4>
-          <a href="mailto:wahyuwons@gmail.com">wahyuwons@gmail.com</a>
-          <a href="tel:+6285791567283">+62 857 9156 7283</a>
-        </div>
+      </div>
+      <div class="footer-contact-col">
+        <h4>Contact</h4>
+        <a href="mailto:wahyuwons@gmail.com">wahyuwons@gmail.com</a>
+        <a href="tel:+6285791567283">+62 857 9156 7283</a>
       </div>
     </div>
-    <div class="ft-bottom">
+    <div class="footer-bottom">
       <p>© 2025 by Wahyuwono. All rights reserved.</p>
-      <div class="ft-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
