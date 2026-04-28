@@ -5,8 +5,7 @@
 
 'use strict';
 
-/* ── Prevent FOUC ─────────────────────────────── */
-document.documentElement.style.visibility = 'hidden';
+/* ── No FOUC delay — load instantly ────────────── */
 gsap.registerPlugin(ScrollTrigger);
 
 /* ══════════════════════════════════════════════════
@@ -255,7 +254,7 @@ function initPreloader() {
   gsap.to(logoEl, { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'back.out(2)', delay: 0.3 });
 
   const prog  = { p: 0 };
-  const total = 4.5; // total preloader seconds
+  const total = 1.2; // fast preloader — no fake delay
 
   function cycleState(pct) {
     const next = Math.min(Math.floor(pct * STATES.length), STATES.length - 1);
@@ -270,7 +269,7 @@ function initPreloader() {
     }
   }
 
-  const tl = gsap.timeline({ delay: 0.5, onComplete: exitPre });
+  const tl = gsap.timeline({ delay: 0.15, onComplete: exitPre });
 
   tl.to(prog, {
     p: 1,
@@ -285,7 +284,7 @@ function initPreloader() {
 
   function exitPre() {
     if (preRenderer) { preRenderer.dispose(); preRenderer = null; }
-    gsap.timeline({ onStart() { document.documentElement.style.visibility = ''; } })
+    gsap.timeline()
       .to(logoEl,     { scale: 80, opacity: 0, duration: 0.6, ease: 'power3.in' }, 0)
       .to('.pre-flap-t', { scaleY: 0, duration: 0.8, ease: 'expo.inOut' }, 0.2)
       .to('.pre-flap-b', { scaleY: 0, duration: 0.8, ease: 'expo.inOut' }, 0.3)
@@ -326,20 +325,13 @@ function initCursor() {
     gsap.set(ring, { x:rx, y:ry });
   });
 
-  const hoverSel = 'a,button,.wcard,.exp-card,.sp,.fc,.dc,.ci';
+  const hoverSel = 'a,button,.w3d-card,.exp-card,.sp,.fc,.dc,.ci';
   document.addEventListener('mouseover', e => { if (e.target.closest(hoverSel)) document.body.classList.add('c-hover'); });
   document.addEventListener('mouseout',  e => { if (e.target.closest(hoverSel)) document.body.classList.remove('c-hover'); });
 
-  document.querySelectorAll('.wcard').forEach(el => {
-    el.addEventListener('mouseenter', () => { txt.textContent='Visit ↗'; document.body.classList.add('c-label'); });
-    el.addEventListener('mouseleave', () => document.body.classList.remove('c-label'));
-  });
-  document.querySelectorAll('#drailOuter,.dc').forEach(el => {
-    el.addEventListener('mouseenter', () => { txt.textContent='Drag'; document.body.classList.add('c-label'); });
-    el.addEventListener('mouseleave', () => document.body.classList.remove('c-label'));
-  });
+  /* wcard labels moved to initWorks */
 
-  document.querySelectorAll('#hero,.marquee-wrap,#design,#experience,#contact,#footer').forEach(sec => {
+  document.querySelectorAll('#hero,.marquee-wrap,#works,#design,#experience,#contact,#footer').forEach(sec => {
     ScrollTrigger.create({ trigger:sec, start:'top center', end:'bottom center',
       onEnter:()=>document.body.classList.add('c-dark'), onLeave:()=>document.body.classList.remove('c-dark'),
       onEnterBack:()=>document.body.classList.add('c-dark'), onLeaveBack:()=>document.body.classList.remove('c-dark'),
@@ -548,33 +540,113 @@ function initWorks() {
   const sec = document.getElementById('works');
   if (!sec) return;
 
-  revealSlLines(sec.querySelector('.works-head-l'));
+  /* Reveal heading */
+  revealSlLines(sec.querySelector('.works-intro'));
   revealUp(sec.querySelector('.works-ey'), sec);
-  revealUp(sec.querySelector('.works-head-r'), sec, 0, 0.18);
+  revealUp(sec.querySelector('.works-tagline'), sec, 0, 0.2);
 
-  gsap.from('.wcard', {
-    opacity:0, y:70, scale:.95, rotationX:8,
-    stagger:{ amount:.6, from:'start' },
-    duration:.95, ease:'expo.out', transformPerspective:1000,
-    scrollTrigger:{ trigger:'.works-bento', start:'top 80%', once:true }
+  const wrap  = document.getElementById('worksHWrap');
+  const track = document.getElementById('worksHTrack');
+  const ind   = document.getElementById('worksScrollInd');
+  const fill  = document.getElementById('wsiFill');
+  if (!wrap || !track) return;
+
+  /* --- GSAP Horizontal Scroll Pin --- */
+  const getScrollWidth = () => track.scrollWidth - wrap.clientWidth;
+
+  const hScrollTl = gsap.to(track, {
+    x: () => -getScrollWidth(),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: wrap,
+      pin: true,
+      pinSpacing: true,
+      scrub: 1.2,
+      start: 'top top',
+      end: () => '+=' + getScrollWidth(),
+      invalidateOnRefresh: true,
+      onUpdate(self) {
+        if (fill) fill.style.width = (self.progress * 100) + '%';
+      },
+      onEnter() { if (ind) ind.classList.add('visible'); },
+      onLeave() { if (ind) ind.classList.remove('visible'); },
+      onEnterBack() { if (ind) ind.classList.add('visible'); },
+      onLeaveBack() { if (ind) ind.classList.remove('visible'); },
+    }
   });
 
-  /* Filter */
-  document.querySelectorAll('.wfb').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.wfb').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.f;
-      document.querySelectorAll('.wcard').forEach(card => {
-        const show = f==='all' || card.dataset.cat===f;
-        card.classList.toggle('hidden-card', !show);
-        gsap.to(card, show ? { opacity:1, scale:1, y:0, duration:.4, ease:'expo.out' }
-                           : { opacity:0, scale:.93, y:20, duration:.3, ease:'power2.in' });
+  /* --- 3D Card Animations on Scroll --- */
+  const cards = document.querySelectorAll('.w3d-card');
+  cards.forEach((card, i) => {
+    gsap.from(card, {
+      opacity: 0,
+      rotationY: i % 2 === 0 ? -25 : 25,
+      rotationX: 8,
+      scale: 0.85,
+      transformPerspective: 1200,
+      duration: 1.2,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: card,
+        containerAnimation: hScrollTl,
+        start: 'left 90%',
+        toggleActions: 'play none none none',
+      }
+    });
+
+    /* --- Mouse-tracking 3D tilt per card --- */
+    const link = card.querySelector('.w3d-link');
+    const img  = card.querySelector('.w3d-bg-img');
+    if (!link) return;
+
+    link.addEventListener('mousemove', (e) => {
+      const r = link.getBoundingClientRect();
+      const cx = (e.clientX - r.left) / r.width - 0.5;
+      const cy = (e.clientY - r.top) / r.height - 0.5;
+
+      gsap.to(link, {
+        rotationY: cx * 18,
+        rotationX: -cy * 12,
+        transformPerspective: 1200,
+        duration: 0.4,
+        ease: 'power2.out',
       });
+
+      /* Parallax image shift */
+      if (img) {
+        gsap.to(img, {
+          x: cx * 15,
+          y: cy * 10,
+          duration: 0.5,
+          ease: 'power2.out',
+        });
+      }
+    });
+
+    link.addEventListener('mouseleave', () => {
+      gsap.to(link, {
+        rotationY: 0,
+        rotationX: 0,
+        duration: 0.7,
+        ease: 'elastic.out(1, 0.5)',
+      });
+      if (img) {
+        gsap.to(img, { x: 0, y: 0, duration: 0.6, ease: 'expo.out' });
+      }
     });
   });
 
-  document.querySelectorAll('.wcard').forEach(el => tilt3d(el, 9));
+  /* Cursor label for cards */
+  const cTxt = document.querySelector('.c-txt');
+  document.querySelectorAll('.w3d-link').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (cTxt) cTxt.textContent = 'Visit ↗';
+      document.body.classList.add('c-label');
+    });
+    el.addEventListener('mouseleave', () => {
+      document.body.classList.remove('c-label');
+    });
+  });
 }
 
 /* ══════════════════════════════════════════════════
